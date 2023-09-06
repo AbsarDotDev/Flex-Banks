@@ -2,6 +2,7 @@ import { Carousel } from 'components/carousel';
 import LowerFooter from 'components/footer/lower-footer';
 import UpperFooter from 'components/footer/upper-footer';
 import { ThreeItemGrid } from 'components/grid/three-items';
+import { Product } from 'components/product';
 export const runtime = 'edge';
 
 export const metadata = {
@@ -11,11 +12,13 @@ export const metadata = {
   }
 };
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <>
       <ThreeItemGrid />
       <Carousel />
+      {/* @ts-ignore */}
+      <Product />
       <footer>
         <UpperFooter />
         <LowerFooter />
