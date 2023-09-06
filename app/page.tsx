@@ -2,8 +2,6 @@ import { Carousel } from 'components/carousel';
 import LowerFooter from 'components/footer/lower-footer';
 import UpperFooter from 'components/footer/upper-footer';
 import { ThreeItemGrid } from 'components/grid/three-items';
-import { Button } from 'components/ui/button';
-
 export const runtime = 'edge';
 
 export const metadata = {
@@ -16,7 +14,6 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <Button>adadasd</Button>
       <ThreeItemGrid />
       <Carousel />
       <footer>
