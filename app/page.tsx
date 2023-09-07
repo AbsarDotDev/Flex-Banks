@@ -1,8 +1,8 @@
 import { Carousel } from 'components/carousel';
+import LowerFooter from 'components/footer/lower-footer';
+import UpperFooter from 'components/footer/upper-footer';
 import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
-import { Suspense } from 'react';
-
+import { Product } from 'components/product';
 export const runtime = 'edge';
 
 export const metadata = {
@@ -12,16 +12,17 @@ export const metadata = {
   }
 };
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <>
       <ThreeItemGrid />
-      <Suspense>
-        <Carousel />
-        <Suspense>
-          <Footer />
-        </Suspense>
-      </Suspense>
+      <Carousel />
+      {/* @ts-ignore */}
+      <Product />
+      <footer>
+        <UpperFooter />
+        <LowerFooter />
+      </footer>
     </>
   );
 }
