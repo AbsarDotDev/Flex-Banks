@@ -2,7 +2,8 @@ import { Carousel } from 'components/carousel';
 import LowerFooter from 'components/footer/lower-footer';
 import UpperFooter from 'components/footer/upper-footer';
 import { ThreeItemGrid } from 'components/grid/three-items';
-import { Product } from 'components/product';
+import { ProductCard } from 'components/product';
+import { getCollectionProducts } from 'lib/shopify';
 export const runtime = 'edge';
 
 export const metadata = {
@@ -12,13 +13,28 @@ export const metadata = {
   }
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await getCollectionProducts({ collection: 'new-arrivals' });
+
+  if (!products?.length) return null;
   return (
     <>
       <ThreeItemGrid />
       <Carousel />
       {/* @ts-ignore */}
-      <Product />
+      <div className="my-20 flex">
+        {products.map((product, index: number) => {
+          return (
+            <ProductCard
+              key={index}
+              title={product.title}
+              amount={product.priceRange.maxVariantPrice.amount}
+              fimage={product.featuredImage.url}
+              images={product.images}
+            />
+          );
+        })}
+      </div>
       <footer>
         <UpperFooter />
         <LowerFooter />
