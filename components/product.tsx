@@ -28,10 +28,10 @@ export function ProductCard({ title, amount, images, fimage }: ProductCardProps)
   };
 
   return (
-    <div className="relative flex w-1/4 flex-col items-center justify-center">
-      <div className="relative">
+    <div className="relative flex w-full flex-col items-center justify-center">
+      <div className="relative w-full">
         <button
-          className=""
+          className="w-full"
           type="button"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -42,7 +42,7 @@ export function ProductCard({ title, amount, images, fimage }: ProductCardProps)
                 infiniteLoop={true}
                 showArrows={true}
                 showIndicators={false}
-                className="w-[300px]"
+                className="w-full"
                 selectedItem={carouselActive ? 1 : 0} // Start from the second image if carouselActive is true
               >
                 {images?.map((img: img, index: number) => {
@@ -59,11 +59,17 @@ export function ProductCard({ title, amount, images, fimage }: ProductCardProps)
                 })}
               </Carousel>
               <Button className="absolute bottom-0 left-0 mt-2 w-full rounded-none bg-gray-400 px-4 py-2 text-white">
-                Add to Cart
+                Quick Buy
               </Button>
             </>
           ) : (
-            <Image src={`${fimage}`} width={300} height={300} alt="asd" />
+            <Image
+              src={`${fimage}`}
+              className="w-full object-cover"
+              height={400}
+              width={400}
+              alt="asd"
+            />
           )}
         </button>
       </div>

@@ -22,7 +22,7 @@ export default async function HomePage() {
       <ThreeItemGrid />
       <Carousel />
       {/* @ts-ignore */}
-      <div className="my-20 flex">
+      <div className="my-20 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-3">
         {products.map((product, index: number) => {
           return (
             <ProductCard
