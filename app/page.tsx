@@ -3,6 +3,8 @@ import LowerFooter from 'components/footer/lower-footer';
 import UpperFooter from 'components/footer/upper-footer';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import { ProductCard } from 'components/product';
+import VidThumbnail from 'components/thumb-vid';
+import Thumbnail from 'components/thumbnail';
 import { getCollectionProducts } from 'lib/shopify';
 export const runtime = 'edge';
 
@@ -21,6 +23,7 @@ export default async function HomePage() {
     <>
       <ThreeItemGrid />
       <Carousel />
+      <VidThumbnail />
       {/* @ts-ignore */}
       <div className="my-20 flex">
         {products.map((product, index: number) => {
@@ -35,6 +38,7 @@ export default async function HomePage() {
           );
         })}
       </div>
+      <Thumbnail />
       <footer>
         <UpperFooter />
         <LowerFooter />
