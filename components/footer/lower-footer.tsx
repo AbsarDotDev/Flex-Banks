@@ -7,9 +7,9 @@ export default function LowerFooter() {
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl">
-        <div className="grid grid-cols-2 gap-8 px-4 py-6 md:grid-cols-4 lg:py-8">
+        <div className="grid grid-cols-2 gap-6 px-5 py-6 md:grid-cols-4 lg:py-8">
           <div>
-            <Image src={'/logo'} width={2} height={2} alt="logo" />
+            <Image src={'/logomain.png'} width={65} height={65} alt="logo" className="my-4" />
             <Instagram className="w-7" />
           </div>
           <div>
@@ -84,7 +84,7 @@ export default function LowerFooter() {
             </Button>
           </div>
         </div>
-        <div className="pt-15 border-t-[1px] border-gray-300 px-2 pb-10 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+        <div className="pt-15 border-t-[1px] border-gray-300 px-5 pb-10 dark:bg-gray-700 md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-900 dark:text-gray-300 sm:text-center">
             © 2023 <Link href="https://flowbite.com/">FlashBanks™</Link>. All Rights Reserved.
           </span>

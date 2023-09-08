@@ -58,7 +58,7 @@ export function ProductCard({ title, amount, images, fimage }: ProductCardProps)
                   );
                 })}
               </Carousel>
-              <Button className="absolute bottom-0 left-0 mt-2 w-full rounded-none bg-gray-400 px-4 py-2 text-white">
+              <Button className="absolute bottom-5 left-0 mt-2 w-full rounded-none bg-gray-400 px-4 py-2 text-white">
                 Quick Buy
               </Button>
             </>

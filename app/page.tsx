@@ -1,11 +1,14 @@
-import { Carousel } from 'components/carousel';
 import LowerFooter from 'components/footer/lower-footer';
 import UpperFooter from 'components/footer/upper-footer';
 import { ThreeItemGrid } from 'components/grid/three-items';
-import { ProductCard } from 'components/product';
-import VidThumbnail from 'components/thumb-vid';
-import Thumbnail from 'components/thumbnail';
-import { getCollectionProducts } from 'lib/shopify';
+import BestSellers from 'components/homepage/best-sellers';
+import { Carousel } from 'components/homepage/carousel';
+import MystCollect from 'components/homepage/myst-collect';
+import NewArrivals from 'components/homepage/new-arrivs';
+import VidThumbnail from 'components/homepage/thumb-vid';
+import Thumbnail from 'components/homepage/thumbnail';
+import url2 from 'public/lastthumbnail.jpg';
+import url1 from 'public/thumbnail.jpg';
 export const runtime = 'edge';
 
 export const metadata = {
@@ -16,29 +19,21 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const products = await getCollectionProducts({ collection: 'new-arrivals' });
-
-  if (!products?.length) return null;
   return (
     <>
       <ThreeItemGrid />
       <Carousel />
+      {/* @ts-ignore */}
+      <NewArrivals />
+
+      <Thumbnail imageUrl={url1} />
+      {/* @ts-ignore */}
+      <BestSellers />
+
       <VidThumbnail />
       {/* @ts-ignore */}
-      <div className="my-20 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-3">
-        {products.map((product, index: number) => {
-          return (
-            <ProductCard
-              key={index}
-              title={product.title}
-              amount={product.priceRange.maxVariantPrice.amount}
-              fimage={product.featuredImage.url}
-              images={product.images}
-            />
-          );
-        })}
-      </div>
-      <Thumbnail />
+      <MystCollect />
+      <Thumbnail imageUrl={url2} />
       <footer>
         <UpperFooter />
         <LowerFooter />
