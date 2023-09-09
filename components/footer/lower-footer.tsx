@@ -84,7 +84,7 @@ export default function LowerFooter() {
             </Button>
           </div>
         </div>
-        <div className="pt-15 border-t-[1px] border-gray-300 px-5 pb-10 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+        <div className="border-t-[1px] border-gray-300 px-5 pb-10 dark:bg-gray-700  md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-900 dark:text-gray-300 sm:text-center">
             © 2023 <Link href="https://flowbite.com/">FlashBanks™</Link>. All Rights Reserved.
           </span>

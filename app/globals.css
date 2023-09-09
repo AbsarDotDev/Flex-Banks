@@ -77,12 +77,14 @@ h6 {
   @apply font-head font-bold;
 }
 .prd-title,
-.prd-price,
-p,
-button {
+.prd-price {
   @apply font-para text-base font-bold;
 }
-
+p,
+button,
+a {
+  @apply font-para text-sm font-light;
+}
 @layer base {
   * {
     @apply border-border;
