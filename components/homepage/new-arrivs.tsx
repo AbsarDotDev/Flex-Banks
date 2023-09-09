@@ -8,23 +8,15 @@ export default async function NewArrivals() {
   if (!newArrivs?.length) return 'No Products Found';
   return (
     <div className="text-center">
-      <Link href={'#'}>
+      <Link href={'/collection/new-arrivals'}>
         <h1 className="mt-6 text-2xl font-semibold uppercase">New Arrival</h1>
       </Link>
-      <Link href={'#'}>
+      <Link href={'/collection/new-arrivals'}>
         <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
       </Link>
       <div className="my-6 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-4">
-        {newArrivs.map((product, index: number) => {
-          return (
-            <ProductCard
-              key={index}
-              title={product.title}
-              amount={product.priceRange.maxVariantPrice.amount}
-              fimage={product.featuredImage.url}
-              images={product.images}
-            />
-          );
+        {newArrivs.map((product) => {
+          return <ProductCard key={product.handle} product={product} />;
         })}
       </div>
     </div>

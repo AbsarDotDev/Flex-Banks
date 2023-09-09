@@ -1,7 +1,7 @@
 export type SortFilterItem = {
   title: string;
   slug: string | null;
-  sortKey: 'RELEVANCE' | 'BEST_SELLING' | 'CREATED_AT' | 'PRICE';
+  sortKey: 'RELEVANCE' | 'BEST_SELLING' | 'CREATED_AT' | 'PRICE' | 'TITLE';
   reverse: boolean;
 };
 
@@ -14,10 +14,13 @@ export const defaultSort: SortFilterItem = {
 
 export const sorting: SortFilterItem[] = [
   defaultSort,
-  { title: 'Trending', slug: 'trending-desc', sortKey: 'BEST_SELLING', reverse: false }, // asc
-  { title: 'Latest arrivals', slug: 'latest-desc', sortKey: 'CREATED_AT', reverse: true },
+  { title: 'Best Selling', slug: 'best-selling', sortKey: 'BEST_SELLING', reverse: false }, // asc
+  { title: 'Date, new to old', slug: 'latest-desc', sortKey: 'CREATED_AT', reverse: true },
+  { title: 'Date, old to new', slug: 'latest-asc', sortKey: 'CREATED_AT', reverse: false },
   { title: 'Price: Low to high', slug: 'price-asc', sortKey: 'PRICE', reverse: false }, // asc
-  { title: 'Price: High to low', slug: 'price-desc', sortKey: 'PRICE', reverse: true }
+  { title: 'Price: High to low', slug: 'price-desc', sortKey: 'PRICE', reverse: true },
+  { title: 'Alphabetically: A to Z', slug: 'name-asc', sortKey: 'TITLE', reverse: false },
+  { title: 'Alphabetically: Z to A', slug: 'name-desc', sortKey: 'TITLE', reverse: true }
 ];
 
 export const TAGS = {

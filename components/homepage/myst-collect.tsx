@@ -16,15 +16,7 @@ export default async function MystCollect() {
       </Link>
       <div className="my-6 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-3">
         {mystcollect.map((product, index: number) => {
-          return (
-            <ProductCard
-              key={index}
-              title={product.title}
-              amount={product.priceRange.maxVariantPrice.amount}
-              fimage={product.featuredImage.url}
-              images={product.images}
-            />
-          );
+          return <ProductCard key={index} product={product} />;
         })}
       </div>
     </div>
