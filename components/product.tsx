@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
 import { Button } from './ui/button';
+
 interface ProductCardProps {
   title: string;
   amount: string;
@@ -13,71 +14,59 @@ interface ProductCardProps {
   fimage: string;
 }
 
-export function ProductCard({ title, amount, images, fimage }: ProductCardProps) {
+export function ProductCard({ title, amount, images }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [carouselActive, setCarouselActive] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    setCarouselActive(true);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setCarouselActive(false);
   };
 
   return (
     <div className="relative flex w-full flex-col items-center justify-center">
       <div className="relative w-full">
-        <button
-          className="w-full"
-          type="button"
+        <div
+          className="relative w-full"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {isHovered ? (
-            <>
-              <Carousel
-                infiniteLoop={true}
-                showArrows={true}
-                showIndicators={false}
-                className="w-full"
-                selectedItem={carouselActive ? 1 : 0} // Start from the second image if carouselActive is true
-              >
-                {images?.map((img: img, index: number) => {
-                  return (
-                    <div key={index}>
-                      <Image
-                        width={300}
-                        height={300}
-                        src={`${img.url}`}
-                        alt={`Carousel Image ${index + 1}`}
-                      />
-                    </div>
-                  );
-                })}
-              </Carousel>
-              <Button className="absolute bottom-5 left-0 mt-2 w-full rounded-none bg-gray-400 px-4 py-2 text-white">
-                Quick Buy
-              </Button>
-            </>
-          ) : (
-            <Image
-              src={`${fimage}`}
-              className="w-full object-cover"
-              height={400}
-              width={400}
-              alt="asd"
-            />
+          <Carousel
+            infiniteLoop={true}
+            showArrows={isHovered}
+            showIndicators={false}
+            className="w-full"
+          >
+            {images?.map((img: img, index: number) => {
+              return (
+                <div key={index}>
+                  <Image
+                    width={300}
+                    height={300}
+                    src={`${img.url}`}
+                    alt={`Carousel Image ${index + 1}`}
+                  />
+                </div>
+              );
+            })}
+          </Carousel>
+          {isHovered && (
+            <Button
+              className="absolute bottom-8 left-2 right-2 w-auto rounded-none bg-white px-4 py-2 font-para text-black hover:bg-white hover:text-black"
+              style={{ zIndex: 1 }}
+            >
+              Quick Buy
+            </Button>
           )}
-        </button>
+        </div>
       </div>
       <div className="text-center">
         <Link href="#" className="">
           <div className="flex flex-col items-center">
-            <span className="text-center">{title}</span>
-            <p>${amount}</p>
+            <span className="prd-title text-center">{title}</span>
+            <p className="prd-price">${amount}</p>
           </div>
         </Link>
       </div>

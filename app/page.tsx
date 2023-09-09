@@ -1,8 +1,6 @@
 import LowerFooter from 'components/footer/lower-footer';
 import UpperFooter from 'components/footer/upper-footer';
-import { ThreeItemGrid } from 'components/grid/three-items';
 import BestSellers from 'components/homepage/best-sellers';
-import { Carousel } from 'components/homepage/carousel';
 import MystCollect from 'components/homepage/myst-collect';
 import NewArrivals from 'components/homepage/new-arrivs';
 import VidThumbnail from 'components/homepage/thumb-vid';
@@ -21,8 +19,6 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      <ThreeItemGrid />
-      <Carousel />
       {/* @ts-ignore */}
       <NewArrivals />
 

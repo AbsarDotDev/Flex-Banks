@@ -1,10 +1,21 @@
 import TopBar from 'components/header/topbar';
 import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
-
+// eslint-disable-next-line no-unused-vars
+const zurich = localFont({
+  src: '../public/zurich.ttf',
+  weight: 'normal',
+  variable: '--font-zurich'
+});
+// eslint-disable-next-line no-unused-vars
+const univers = localFont({
+  src: '../public/uni.ttf',
+  weight: 'normal',
+  variable: '--font-univers'
+});
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
@@ -32,15 +43,9 @@ export const metadata = {
     })
 };
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter'
-});
-
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${zurich.variable} ${univers.variable}`}>
       <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <TopBar />
         <Navbar />

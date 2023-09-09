@@ -68,6 +68,20 @@
     --radius: 0.5rem;
   }
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-head font-bold;
+}
+.prd-title,
+.prd-price,
+p,
+button {
+  @apply font-para text-base font-bold;
+}
 
 @layer base {
   * {

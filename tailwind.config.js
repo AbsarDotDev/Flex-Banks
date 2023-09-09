@@ -1,5 +1,4 @@
 const plugin = require('tailwindcss/plugin');
-const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -57,7 +56,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans]
+        head: ['var(--font-zurich)'],
+        para: ['var(--font-univers)']
+        // sans: ['var(--font-sans)', ...fontFamily.sans]
       },
       borderRadius: {
         lg: `var(--radius)`,
