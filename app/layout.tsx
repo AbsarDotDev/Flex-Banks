@@ -1,5 +1,7 @@
+import LowerFooter from 'components/footer/lower-footer';
+import UpperFooter from 'components/footer/upper-footer';
+import Header from 'components/header/header';
 import TopBar from 'components/header/topbar';
-import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import localFont from 'next/font/local';
 import { ReactNode, Suspense } from 'react';
@@ -48,10 +50,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang="en" className={`${zurich.variable} ${univers.variable}`}>
       <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <TopBar />
-        <Navbar />
+        <Header />
         <Suspense>
           <main>{children}</main>
         </Suspense>
+        <footer>
+          <UpperFooter />
+          <LowerFooter />
+        </footer>
       </body>
     </html>
   );

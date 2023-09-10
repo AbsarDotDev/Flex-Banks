@@ -1,5 +1,3 @@
-import LowerFooter from 'components/footer/lower-footer';
-import UpperFooter from 'components/footer/upper-footer';
 import BestSellers from 'components/homepage/best-sellers';
 import MystCollect from 'components/homepage/myst-collect';
 import NewArrivals from 'components/homepage/new-arrivs';
@@ -30,10 +28,6 @@ export default async function HomePage() {
       {/* @ts-ignore */}
       <MystCollect />
       <Thumbnail imageUrl={url2} />
-      <footer>
-        <UpperFooter />
-        <LowerFooter />
-      </footer>
     </>
   );
 }
