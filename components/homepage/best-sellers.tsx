@@ -16,9 +16,6 @@ export default async function BestSellers() {
       </Link>
       <div className="my-6 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-3">
         {bestSellers.map((product, index: number) => {
-          console.log('Max:' + product.compareAtPriceRange.maxVariantPrice.amount);
-          console.log('min:' + product.compareAtPriceRange.minVariantPrice.amount);
-
           return <ProductCard key={index} product={product} />;
         })}
       </div>

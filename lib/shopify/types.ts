@@ -268,3 +268,21 @@ export type ShopifyProductsOperation = {
     sortKey?: string;
   };
 };
+export type ShopifyCurrencyOperation = {
+  data: {
+    localization: {
+      country: {
+        currency: {
+          isoCode: string;
+          name: string;
+          symbol: string;
+        };
+        isoCode: string;
+        name: string;
+      };
+    };
+  };
+  variables: {
+    countryCode: string;
+  };
+};
