@@ -9,6 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "pnpm-install": "pnpm install",
+    "pnpm-clean": "pnpm clean",
     "lint": "next lint",
     "lint-staged": "lint-staged",
     "prettier": "prettier --write --ignore-unknown .",
