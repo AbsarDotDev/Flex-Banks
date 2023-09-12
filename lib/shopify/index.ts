@@ -11,6 +11,7 @@ import {
   removeFromCartMutation
 } from './mutations/cart';
 import { getCartQuery } from './queries/cart';
+
 import {
   getCollectionProductsQuery,
   getCollectionQuery,
@@ -23,6 +24,9 @@ import {
   getProductRecommendationsQuery,
   getProductsQuery
 } from './queries/product';
+
+import { getCountries } from './queries/countries';
+import { getCurrencyQuery } from './queries/currencies';
 import {
   Cart,
   Collection,
@@ -39,6 +43,7 @@ import {
   ShopifyCollectionProductsOperation,
   ShopifyCollectionsOperation,
   ShopifyCreateCartOperation,
+  ShopifyCurrencyOperation,
   ShopifyMenuOperation,
   ShopifyPageOperation,
   ShopifyPagesOperation,
@@ -299,7 +304,6 @@ export async function getCollectionProducts({
       sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey
     }
   });
-  console.log(res);
   if (!res.body.data.collection) {
     console.log(`No collection found for \`${collection}\``);
     return [];
@@ -370,6 +374,20 @@ export async function getPages(): Promise<Page[]> {
   return removeEdgesAndNodes(res.body.data.pages);
 }
 
+export async function getCountry() {
+  const res = await shopifyFetch({
+    query: getCountries,
+    cache: 'no-store'
+  });
+  return res;
+}
+export async function getCurrency(countryCode: string) {
+  const res = await shopifyFetch<ShopifyCurrencyOperation>({
+    query: getCurrencyQuery, // Pass the updated query string
+    variables: { countryCode } // Pass the variables object
+  });
+  return res;
+}
 export async function getProduct(handle: string): Promise<Product | undefined> {
   const res = await shopifyFetch<ShopifyProductOperation>({
     query: getProductQuery,
