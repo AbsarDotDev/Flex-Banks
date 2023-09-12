@@ -13,9 +13,15 @@ const Navigation = () => {
     setIsListVisible(false);
   };
   return (
-    <ul className="flex items-start justify-center gap-x-20 py-2 text-white ">
-      <li>About</li>
-      <li onMouseEnter={showList} onMouseLeave={hideList}>
+    <ul className="flex items-start justify-center gap-x-20 font-head">
+      <li className="duration-180 border-b-2 border-transparent py-2 transition hover:border-b-2 hover:border-black">
+        About
+      </li>
+      <li
+        className="duration-180 border-b-2 border-transparent py-2 transition hover:border-b-2 hover:border-black"
+        onMouseEnter={showList}
+        onMouseLeave={hideList}
+      >
         Home {isListVisible && <OnHoverMenu />}
       </li>
     </ul>
