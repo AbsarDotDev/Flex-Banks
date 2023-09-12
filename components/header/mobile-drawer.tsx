@@ -42,7 +42,7 @@ export default function MobileDrawer() {
       <label htmlFor="drawer-toggle" className="rounded-lg">
         <Menu />
       </label>
-      <div className="fixed left-0 top-0 z-20 h-full w-[80%] -translate-x-full transform bg-white shadow-lg transition-all duration-500 peer-checked:translate-x-0">
+      <div className="fixed left-0 top-0 z-20 h-full w-[80%] -translate-x-full transform bg-white shadow-black backdrop-blur-3xl backdrop-opacity-80 transition-all duration-500 peer-checked:translate-x-0">
         <div className="">
           <label
             htmlFor="drawer-toggle"
@@ -102,15 +102,16 @@ export default function MobileDrawer() {
                 <ul className="px-4 font-head text-lg uppercase text-gray-800 ">
                   <li>
                     {' '}
-                    <button onClick={goBack}>
+                    <button onClick={goBack} className="absolute top-4">
                       <ChevronLeft className="w-6" />
                     </button>
                   </li>
+                  <li className="absolute left-[40%] top-3">Collection</li>
                   <li>
                     <Image src={SubImg2} alt="menu image" />
                   </li>
-                  <li className="text-center">explore the archives</li>
-                  <li className="text-center">lookbook</li>
+                  <li className="pt-3 text-center text-sm">explore the archives</li>
+                  <li className="py-3 text-center text-2xl">lookbook</li>
                   <li className="py-4">
                     <button
                       className="font-head text-lg uppercase"
