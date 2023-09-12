@@ -4,19 +4,16 @@ import trop from 'public/trop.jpg';
 export default function OnHoverMenu() {
   return (
     <>
-      <div className="fixed left-0 z-[999] mt-[11px] w-[100%] bg-gray-100">
-        <div className="flex text-black">
-          <div className="my-4 ml-52 flex flex-col items-center justify-center">
+      <div className=" bg-gray-100 md:fixed md:left-0 md:z-[999] md:mt-[11px] md:w-[100%]">
+        <div className="res text-black md:w-[100%]">
+          <div className="flex w-1/2 flex-col items-center justify-center">
             <p className="my-2">LATEST IN:</p>
             <h2 className="my-2">TROPICAL SHORTS</h2>
-            <button className="my-2">Shop Now</button>
+            <button className="my-2 ">Shop Now</button>
           </div>
-          <div className="relative flex flex-grow justify-end">
-            <div className="w-1/2 bg-opacity-0 text-black backdrop-blur-sm "></div>
-            <Image src={trop} alt="" height={600} width={750} />
-          </div>
+          <Image src={trop} alt="mega menu image" />
         </div>
-        <div className="ml-10 grid grid-cols-5 py-5 font-head uppercase">
+        <div className="ml-10 hidden grid-cols-5 py-5 font-head uppercase md:grid">
           <div>
             <h6 className="py-2 text-[12px] text-gray-400">
               <Link href={'#'}>new arrivals</Link>

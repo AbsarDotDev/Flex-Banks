@@ -115,3 +115,12 @@ button {
 .carousel-status {
   display: none;
 }
+.res {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .res {
+    display: flex;
+    flex-direction: column-reverse !important;
+  }
+}
