@@ -10,8 +10,7 @@ import OnHoverMenu from './onHoverMenu';
 export default function MobileDrawer() {
   const [menuLevel, setMenuLevel] = useState('main');
   const [submenuLevel, setSubmenuLevel] = useState('none');
-  const [prevMenuLevel, setPrevMenuLevel] = useState(null);
-  const [prevSubmenuLevel, setPrevSubmenuLevel] = useState(null);
+
   const [isListVisible, setIsListVisible] = useState(false);
 
   const showList = () => {

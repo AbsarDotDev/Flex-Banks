@@ -124,3 +124,6 @@ button {
     flex-direction: column-reverse !important;
   }
 }
+.header:hover {
+  background: #eaeaea;
+}

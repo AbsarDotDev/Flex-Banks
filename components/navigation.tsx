@@ -14,11 +14,11 @@ const Navigation = () => {
   };
   return (
     <ul className="flex items-start justify-center gap-x-20 font-head">
-      <li className="duration-180 border-b-2 border-transparent py-2 transition hover:border-b-2 hover:border-black">
+      <li className="border-b-2 border-transparent py-2 font-extralight transition duration-700 hover:border-b-2 hover:border-black">
         About
       </li>
       <li
-        className="duration-180 border-b-2 border-transparent py-2 transition hover:border-b-2 hover:border-black"
+        className="border-b-2 border-transparent py-2 transition duration-700 hover:border-b-2 hover:border-black"
         onMouseEnter={showList}
         onMouseLeave={hideList}
       >

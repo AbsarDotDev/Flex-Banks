@@ -22,7 +22,7 @@ export default function Header() {
           height: '600px' // Center the background image
         }}
       >
-        <div className="mask fixed z-[999] w-full bg-opacity-80 text-white">
+        <div className="header mask pointer-events-none fixed z-[999] w-full bg-opacity-80 text-white">
           <div className="flex w-full items-center justify-between px-6">
             <div className="flex">
               <MobileDrawer />
@@ -40,7 +40,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div className="duration-50 hidden transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
+          <div className="customnav duration-50 pointer-events-auto hidden transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
             <Navigation />
           </div>
         </div>
