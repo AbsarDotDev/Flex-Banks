@@ -22,7 +22,7 @@ export default function Header() {
           height: '600px' // Center the background image
         }}
       >
-        <div className="header mask pointer-events-none fixed z-[999] w-full bg-opacity-80 text-white">
+        <div className="header fixed z-[999] w-full bg-opacity-80 text-white">
           <div className="flex w-full items-center justify-between px-6">
             <div className="flex">
               <MobileDrawer />

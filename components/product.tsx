@@ -68,7 +68,7 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
       </div>
       <div className="text-center">
-        <Link href="#" className="">
+        <Link href={`/product/${product.handle}`} className="">
           <div className="flex flex-col items-center">
             <span className="prd-title text-center">{product.title}</span>
             {OnSale ? (

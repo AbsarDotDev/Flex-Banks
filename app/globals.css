@@ -127,3 +127,7 @@ button {
 .header:hover {
   background: #eaeaea;
 }
+/* custom.css */
+.magnify-out-cursor {
+  cursor: zoom-out;
+}

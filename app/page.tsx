@@ -1,3 +1,4 @@
+import Header from 'components/header/header';
 import BestSellers from 'components/homepage/best-sellers';
 import MystCollect from 'components/homepage/myst-collect';
 import NewArrivals from 'components/homepage/new-arrivs';
@@ -16,6 +17,7 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
+      <Header />
       {/* @ts-ignore */}
       <NewArrivals />
 

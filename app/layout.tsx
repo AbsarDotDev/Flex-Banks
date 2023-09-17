@@ -1,11 +1,11 @@
 import LowerFooter from 'components/footer/lower-footer';
 import UpperFooter from 'components/footer/upper-footer';
-import Header from 'components/header/header';
 import TopBar from 'components/header/topbar';
 import { ensureStartsWith } from 'lib/utils';
 import localFont from 'next/font/local';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
+
 // eslint-disable-next-line no-unused-vars
 const zurich = localFont({
   src: '../public/zurich.ttf',
@@ -50,7 +50,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang="en" className={`${zurich.variable} ${univers.variable}`}>
       <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <TopBar />
-        <Header />
+
         <Suspense>
           <main>{children}</main>
         </Suspense>
