@@ -1,6 +1,5 @@
 'use client';
 
-import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu';
 import clsx from 'clsx';
 import { ProductOption, ProductVariant } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
@@ -11,6 +10,7 @@ import { Button } from '../../components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuTrigger
 } from '../../components/ui/dropdown-menu';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../components/ui/tabs';
@@ -121,14 +121,10 @@ export function VariantSelector({
                                 combination[key] === value && combination.availableForSale
                             )
                           );
-
                           // The option is active if it's in the url params.
                           const isActive = searchParams.get(optionNameLowerCase) === value;
                           const variant = variants.find((variant: ProductVariant) =>
-                            variant.selectedOptions.every(
-                              (option) =>
-                                option.value === searchParams.get(option.name.toLowerCase())
-                            )
+                            variant.selectedOptions.every((option) => option.value === value)
                           );
                           return (
                             <>
