@@ -52,7 +52,7 @@ export function VariantSelector({
     <dl className="mb-8" key={option.id}>
       <dt className="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
       <DropdownMenu>
-        <DropdownMenuTrigger className="w-full border-[1px] border-black p-2">
+        <DropdownMenuTrigger className="relative w-full border-[1px] border-gray-700 p-2">
           <div className="flex items-center justify-between">
             <p>{option.name}:</p>
             <div className="flex items-center">
@@ -61,7 +61,7 @@ export function VariantSelector({
             </div>
           </div>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="justify-start px-10 py-4">
+        <DropdownMenuContent className="relative justify-start px-7 py-4">
           <div className="flex flex-col gap-y-8">
             <h3>Sizes and Conversions</h3>
             <Tabs defaultValue="US W" className="w-[400px] ">
@@ -141,7 +141,7 @@ export function VariantSelector({
                                     !isAvailableForSale ? ' (Out of Stock)' : ''
                                   }`}
                                   className={clsx(
-                                    'flex w-full items-center justify-center rounded-sm border bg-neutral-100 py-6 text-sm  text-black hover:text-white dark:border-neutral-800 dark:bg-neutral-900',
+                                    'flex w-full items-center justify-center rounded-sm border bg-neutral-100 px-4 py-6 text-xs  text-black hover:text-white dark:border-neutral-800 dark:bg-neutral-900',
                                     {
                                       'cursor-default ring-1 ring-black': isActive,
                                       'ring-1 ring-transparent transition duration-300 ease-in-out hover:scale-110 hover:ring-white ':

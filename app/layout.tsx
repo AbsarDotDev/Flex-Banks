@@ -1,5 +1,4 @@
 import LowerFooter from 'components/footer/lower-footer';
-import UpperFooter from 'components/footer/upper-footer';
 import TopBar from 'components/header/topbar';
 import { ensureStartsWith } from 'lib/utils';
 import localFont from 'next/font/local';
@@ -55,7 +54,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <main>{children}</main>
         </Suspense>
         <footer>
-          <UpperFooter />
           <LowerFooter />
         </footer>
       </body>
