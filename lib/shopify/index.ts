@@ -327,6 +327,12 @@ export async function getCollections(): Promise<Collection[]> {
         title: 'All',
         description: 'All products'
       },
+      image: {
+        altText: 'All',
+        url: 'https://cdn.shopify.com/s/files/1/0508/6409/6813/files/All_1024x1024.png?v=1627988605',
+        height: 1024,
+        width: 1024
+      },
       path: '/search',
       updatedAt: new Date().toISOString()
     },

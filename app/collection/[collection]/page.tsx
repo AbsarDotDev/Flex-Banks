@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import ColletionGridItems from 'components/collection-grid';
 import FilterList from 'components/layout/search/filter';
 import { defaultSort, sorting } from 'lib/constants';
+import Image from 'next/image';
 
 export const runtime = 'edge';
 
@@ -34,9 +35,15 @@ export default async function CategoryPage({
   const { sort } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
   const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
-
+  const collection = await getCollection(params.collection);
   return (
     <section className="mt-20 px-10">
+      <Image
+        src={collection!.image?.url}
+        alt={collection!.title}
+        width={collection!.image?.width}
+        height={collection!.image?.height}
+      />
       <h1 className="mt-6 pb-10 text-center text-2xl font-semibold uppercase">
         {params.collection}
       </h1>
