@@ -1,5 +1,4 @@
 import { AddToCart } from 'components/cart/add-to-cart';
-import Price from 'components/price';
 import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
 import ProductAccordian from './accordian';
@@ -10,13 +9,7 @@ export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
       <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
-        <h1 className="mb-2 text-5xl font-medium">{product.title}</h1>
-        <div className="mr-auto w-auto rounded-full bg-blue-600 p-2 text-sm text-white">
-          <Price
-            amount={product.priceRange.maxVariantPrice.amount}
-            currencyCode={product.priceRange.maxVariantPrice.currencyCode}
-          />
-        </div>
+        <h1 className="mb-2 text-4xl font-medium">{product.title}</h1>
       </div>
       <div className="rounded-none border-[1px] border-gray-400 p-4">
         <VariantSelector options={product.options} variants={product.variants} />
