@@ -12,7 +12,7 @@ export function ProductDescription({ product }: { product: Product }) {
         <h1 className="mb-2 text-4xl font-medium">{product.title}</h1>
       </div>
       <div className="rounded-none border-[1px] border-gray-400 p-4">
-        <VariantSelector options={product.options} variants={product.variants} />
+        <VariantSelector options={product.options} variants={product.variants} product={product} />
 
         {product.descriptionHtml ? (
           <Prose
@@ -20,7 +20,11 @@ export function ProductDescription({ product }: { product: Product }) {
             html={product.descriptionHtml}
           />
         ) : null}
-        <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
+        <AddToCart
+          variants={product.variants}
+          availableForSale={product.availableForSale}
+          product={product}
+        />
       </div>
       <RoundVideo />
       <ProductAccordian />

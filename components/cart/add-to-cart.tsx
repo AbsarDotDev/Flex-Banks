@@ -4,16 +4,18 @@ import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import { Button } from 'components/ui/button';
-import { ProductVariant } from 'lib/shopify/types';
+import { Product, ProductVariant } from 'lib/shopify/types';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';
 
 export function AddToCart({
   variants,
-  availableForSale
+  availableForSale,
+  product
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
+  product: Product;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -41,7 +43,8 @@ export function AddToCart({
           if (!selectedVariantId) {
             const optionSearchParams = new URLSearchParams(searchParams.toString());
             optionSearchParams.set(' ', '');
-            router.push('/');
+            router.push(`/buy/${product.handle}`);
+            return null;
           } else if (!availableForSale || !selectedVariantId) return;
 
           startTransition(async () => {
@@ -76,7 +79,8 @@ export function AddToCart({
           if (!selectedVariantId) {
             const optionSearchParams = new URLSearchParams(searchParams.toString());
             optionSearchParams.set(' ', '');
-            router.push('/');
+            router.push(`/buy/${product.handle}`);
+            return null;
           } else if (!availableForSale || !selectedVariantId) return;
 
           startTransition(async () => {
