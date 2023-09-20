@@ -131,3 +131,12 @@ button {
 .magnify-out-cursor {
   cursor: zoom-out;
 }
+/* .stk{
+  position: sticky;
+  top: 10;
+  height: 100px;
+  z-index: 50;
+  color: white;
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+} */
