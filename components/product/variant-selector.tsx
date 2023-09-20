@@ -96,7 +96,7 @@ export function VariantSelector({
 
                           // Update the option params using the current option to reflect how the url *would* change,
                           // if the option was clicked.
-                          optionSearchParams.set(optionNameLowerCase, value);
+                          optionSearchParams.set(option.name.toLowerCase(), value);
                           const optionUrl = createUrl(pathname, optionSearchParams);
 
                           // In order to determine if an option is available for sale, we need to:
@@ -135,6 +135,7 @@ export function VariantSelector({
                                   disabled={!isAvailableForSale}
                                   onClick={() => {
                                     router.replace(optionUrl, { scroll: false });
+                                    console.log(option.name.toLowerCase());
                                     setOptionNameLowerCase(option.name.toLowerCase());
                                   }}
                                   title={`${option.name} ${value}${
