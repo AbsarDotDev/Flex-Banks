@@ -4,7 +4,6 @@ import { Suspense } from 'react';
 
 import { GridTileImage } from 'components/grid/tile';
 import HeaderWithoutHero from 'components/header/header-without-hero';
-import Footer from 'components/layout/footer';
 import { CustomGallery } from 'components/product/custom-gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
@@ -83,7 +82,7 @@ export default async function ProductPage({ params }: { params: { handle: string
       />
       <HeaderWithoutHero />
       <div className="mx-auto max-w-screen-2xl px-4">
-        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-black md:p-12 lg:flex-row lg:gap-8">
+        <div className="flex flex-col p-8 dark:border-neutral-800 dark:bg-black md:p-12 lg:flex-row lg:gap-8">
           <div className="h-full w-full basis-full lg:basis-4/6">
             <CustomGallery images={product.images} />
             {/* <Gallery
@@ -102,9 +101,6 @@ export default async function ProductPage({ params }: { params: { handle: string
           <RelatedProducts id={product.id} />
         </Suspense>
       </div>
-      <Suspense>
-        <Footer />
-      </Suspense>
     </>
   );
 }

@@ -2,6 +2,8 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
+import ProductAccordian from './accordian';
+import RoundVideo from './round-video-btn';
 import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {
@@ -16,16 +18,19 @@ export function ProductDescription({ product }: { product: Product }) {
           />
         </div>
       </div>
-      <VariantSelector options={product.options} variants={product.variants} />
+      <div className="rounded-none border-[1px] border-gray-400 p-4">
+        <VariantSelector options={product.options} variants={product.variants} />
 
-      {product.descriptionHtml ? (
-        <Prose
-          className="mb-6 text-sm leading-tight dark:text-white/[60%]"
-          html={product.descriptionHtml}
-        />
-      ) : null}
-
-      <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
+        {product.descriptionHtml ? (
+          <Prose
+            className="mb-6 text-sm leading-tight dark:text-white/[60%]"
+            html={product.descriptionHtml}
+          />
+        ) : null}
+        <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
+      </div>
+      <RoundVideo />
+      <ProductAccordian />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import UpperFooter from 'components/footer/upper-footer';
 import Header from 'components/header/header';
 import BestSellers from 'components/homepage/best-sellers';
 import MystCollect from 'components/homepage/myst-collect';
@@ -29,6 +30,7 @@ export default async function HomePage() {
       {/* @ts-ignore */}
       <MystCollect />
       <Thumbnail imageUrl={url2} />
+      <UpperFooter />
     </>
   );
 }
