@@ -36,7 +36,7 @@ export function AddToCartBtn({
   return (
     <div className="flex justify-evenly">
       <Button
-        aria-label="Add item to cart"
+        aria-label="Add to cartt"
         disabled={isPending || !availableForSale || !selectedVariantId}
         title={title}
         onClick={() => {
