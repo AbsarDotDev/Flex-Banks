@@ -3,10 +3,12 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ColletionGridItems from 'components/collection-grid';
+import HeaderWithoutHero from 'components/header/header-without-hero';
 import FilterList from 'components/layout/search/filter';
+import NewsLetter from 'components/news_letter';
 import { defaultSort, sorting } from 'lib/constants';
 import Image from 'next/image';
-
+import image2 from '../../../public/trop.jpg';
 export const runtime = 'edge';
 
 export async function generateMetadata({
@@ -36,28 +38,47 @@ export default async function CategoryPage({
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
   const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
   const collection = await getCollection(params.collection);
+  console.log(collection);
   return (
-    <section className="mt-20 px-10">
-      <Image
-        src={collection!.image?.url}
-        alt={collection!.title}
-        width={collection!.image?.width}
-        height={collection!.image?.height}
-      />
-      <h1 className="mt-6 pb-10 text-center text-2xl font-semibold uppercase">
-        {params.collection}
-      </h1>
-      <div className="flex justify-end pb-10">
-        <FilterList list={sorting} title="Sort by" />
-      </div>
-
-      {products.length === 0 ? (
-        <p className="py-3 text-lg">{`No products found in this collection`}</p>
-      ) : (
-        <div className="my-6 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-4">
-          <ColletionGridItems products={products} />
+    <>
+      <HeaderWithoutHero />
+      <section className="">
+        <Image
+          className="min-w-full"
+          src={collection!.image?.url}
+          alt={collection!.title}
+          width={collection!.image?.width}
+          height={collection!.image?.height}
+        />
+        <div className="absolute right-0 top-0  flex h-full w-full flex-col items-end justify-center text-black">
+          <h1 className="text-2xl font-semibold uppercase"> {params.collection}</h1>
+          <button className="my-5 rounded border border-blue-500 px-4 py-2 transition duration-300 ease-in-out hover:border-transparent hover:bg-blue-500 hover:text-white">
+            Shop Now
+          </button>
         </div>
-      )}
-    </section>
+        <h1 className="mt-6 pb-10 text-center text-2xl font-semibold uppercase">
+          {params.collection}
+        </h1>
+
+        <p className=" text-center text-2xl font-semibold uppercase text-black">
+          {collection!.description}
+        </p>
+
+        <div className="flex justify-end pb-10">
+          <FilterList list={sorting} title="Sort by" />
+        </div>
+
+        {products.length === 0 ? (
+          <p className="py-3 text-lg">{`No products found in this collection`}</p>
+        ) : (
+          <div className="my-6 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-4">
+            <ColletionGridItems products={products} />
+          </div>
+        )}
+        <Image className="w-full" src={image2} alt=""></Image>
+        <NewsLetter />
+        <footer />
+      </section>
+    </>
   );
 }
