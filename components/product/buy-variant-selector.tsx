@@ -46,8 +46,8 @@ export function BuyVariantSelector({
     )
   }));
   return options.map((option) => (
-    <div className="px-10 pt-32">
-      <dl className="mb-8" key={option.id}>
+    <div className="px-10 py-32">
+      <dl className="" key={option.id}>
         <div className="flex flex-col gap-y-8">
           <div className="flex items-center justify-between">
             <h3 className="text-xl">Select Size</h3>
