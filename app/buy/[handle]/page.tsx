@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 
-import HeaderWithoutHero from 'components/header/header-without-hero';
-import { ProductCard } from 'components/product';
-import { CustomGallery } from 'components/product/custom-gallery';
-import { ProductDescription } from 'components/product/product-description';
+import { AddToCartBtn } from 'components/cart/add-to-cart-btn';
+import { BuyVariantSelector } from 'components/product/buy-variant-selector';
+import { Button } from 'components/ui/button';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct, getProductRecommendations } from 'lib/shopify';
+import { getProduct } from 'lib/shopify';
+import Image from 'next/image';
+import Link from 'next/link';
+import logo from 'public/1080p.gif';
 
 export const runtime = 'edge';
 
@@ -79,44 +80,36 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <HeaderWithoutHero />
-      <div className="mx-auto mt-20 max-w-screen-2xl px-4">
-        <div className="flex flex-col p-8 dark:border-neutral-800 dark:bg-black md:p-12 lg:flex-row lg:gap-8">
-          <div className="h-full w-full basis-full lg:basis-[55%]">
-            <CustomGallery images={product.images} />
-            {/* <Gallery
-              images={product.images.map((image: Image) => ({
-                src: image.url,
-                altText: image.altText
-              }))}
-            /> */}
-          </div>
-
-          <div className="basis-full lg:basis-[45%]">
-            <ProductDescription product={product} />
-          </div>
+      <header className="fixed flex w-full justify-center border-b-[1px] border-gray-700 bg-white py-4 pr-4">
+        <Image src={logo} alt="thumbnail" width={80} />
+      </header>
+      <div className="flex flex-col dark:border-neutral-800 dark:bg-black lg:flex-row">
+        <div className="h-full w-full basis-full px-10 pt-32 lg:basis-[55%]">
+          <h1 className="pb-8 text-center text-3xl font-semibold">{product.title}</h1>
+          <Image src={product.featuredImage.url} alt="" width={1000} height={1000} />
         </div>
-        <Suspense>
-          <RelatedProducts id={product.id} />
-        </Suspense>
+
+        <div className="h-screen w-full basis-full bg-gray-200 lg:basis-[45%]">
+          <BuyVariantSelector
+            options={product.options}
+            variants={product.variants}
+            product={product}
+          />
+        </div>
+      </div>
+
+      <div className="fixed bottom-0 flex w-full justify-around border-t-[1px] border-gray-700 bg-white py-4">
+        <Button className="rounded-none border-[1px] border-black bg-transparent px-7 py-6 text-gray-600">
+          <Link className="text-gray-600" href={`/product/${product.handle}`}>
+            Cancel
+          </Link>
+        </Button>
+        <AddToCartBtn
+          variants={product.variants}
+          availableForSale={product.availableForSale}
+          product={product}
+        />
       </div>
     </>
-  );
-}
-
-async function RelatedProducts({ id }: { id: string }) {
-  const relatedProducts = await getProductRecommendations(id);
-
-  if (!relatedProducts.length) return 'No Related Products To Show';
-
-  return (
-    <div className="py-8 ">
-      <h2 className="mb-4 px-10 text-2xl font-bold">Related Products</h2>
-      <div className="grid grid-cols-2 gap-x-2 px-10 md:grid-cols-4">
-        {relatedProducts.map((product) => (
-          <ProductCard key={product.handle} product={product} />
-        ))}
-      </div>
-    </div>
   );
 }

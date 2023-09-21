@@ -1,4 +1,4 @@
-import { AddToCart } from 'components/cart/add-to-cart';
+import { AddToCart } from 'components/cart/add-to-cart-with-buy-now';
 import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
 import ProductAccordian from './accordian';
