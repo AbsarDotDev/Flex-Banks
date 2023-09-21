@@ -17,7 +17,7 @@ export default function HeaderWithoutHero() {
             <Search className="w-8" />
           </div>
           <div className="py-6">
-            <Image src={logo} alt="thumbnail" width={50} />
+            <Image src={logo} alt="thumbnail" width={70} />
           </div>
           <div>
             <div className="flex items-center">

@@ -1,14 +1,13 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
 import { AddToCartBtn } from 'components/cart/add-to-cart-btn';
 import { BuyVariantSelector } from 'components/product/buy-variant-selector';
 import { Button } from 'components/ui/button';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct } from 'lib/shopify';
+import { getCart, getProduct } from 'lib/shopify';
+import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from 'public/1080p.gif';
+import { notFound } from 'next/navigation';
 
 export const runtime = 'edge';
 
@@ -50,7 +49,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
+export default async function BuyProductPage({ params }: { params: { handle: string } }) {
+  const cartId = cookies().get('cartId')?.value;
+  let cart;
+
+  if (cartId) {
+    cart = await getCart(cartId);
+  }
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
@@ -80,11 +85,8 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <header className="fixed flex w-full justify-center border-b-[1px] border-gray-700 bg-white py-4 pr-4">
-        <Image src={logo} alt="thumbnail" width={80} />
-      </header>
       <div className="flex flex-col dark:border-neutral-800 dark:bg-black lg:flex-row">
-        <div className="h-full w-full basis-full px-10 pt-32 lg:basis-[55%]">
+        <div className="h-full w-full basis-full px-10 py-32 lg:basis-[55%]">
           <h1 className="pb-8 text-center text-3xl font-semibold">{product.title}</h1>
           <Image src={product.featuredImage.url} alt="" width={1000} height={1000} />
         </div>
@@ -108,6 +110,7 @@ export default async function ProductPage({ params }: { params: { handle: string
           variants={product.variants}
           availableForSale={product.availableForSale}
           product={product}
+          cart={cart}
         />
       </div>
     </>
