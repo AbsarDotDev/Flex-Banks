@@ -59,7 +59,7 @@ export function AddToCart({
           });
         }}
         className={clsx(
-          'text-md relative mr-2 flex w-full items-center justify-center rounded-none border-[1px] border-black bg-transparent py-5 font-bold tracking-wide text-black hover:bg-gray-400 hover:text-white',
+          'text-md relative mr-2 flex w-full items-center justify-center rounded-none border-[1px] border-black bg-transparent py-5 font-bold tracking-wide text-black hover:bg-black hover:text-white',
           {
             'hover:opacity-50': !availableForSale || !selectedVariantId,
             'cursor-not-allowed': isPending
@@ -95,7 +95,7 @@ export function AddToCart({
           });
         }}
         className={clsx(
-          'text-md relative ml-2 flex w-full items-center justify-center rounded-none border-[1px] border-green-600 bg-green-600 py-5 font-bold tracking-wide text-white hover:bg-green-400 hover:text-white',
+          'text-md relative ml-2 flex w-full items-center justify-center rounded-none border-[1px] py-5 font-bold tracking-wide text-white hover:border-black hover:bg-transparent hover:text-black',
           {
             'hover:opacity-50': !availableForSale || !selectedVariantId,
             'cursor-not-allowed': isPending
@@ -105,7 +105,7 @@ export function AddToCart({
         <div className="absolute left-0 ml-4">
           {!isPending ? <></> : <LoadingDots className="mb-3 bg-white" />}
         </div>
-        <span className=" hover:text-black">{availableForSale ? 'Buy Now' : 'Out Of Stock'}</span>
+        <span>{availableForSale ? 'Buy Now' : 'Out Of Stock'}</span>
       </Button>
     </div>
   );

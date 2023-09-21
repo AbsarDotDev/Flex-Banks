@@ -1,6 +1,6 @@
 import { CartProductLayout } from 'components/cartpage/cartpage';
 import HeaderWithoutHero from 'components/header/header-without-hero';
-import { getCart } from 'lib/shopify';
+import { getCart, getCollectionProducts } from 'lib/shopify';
 import { cookies } from 'next/headers';
 
 export default async function Cart() {
@@ -10,11 +10,12 @@ export default async function Cart() {
   if (cartId) {
     cart = await getCart(cartId);
   }
-
+  const products = await getCollectionProducts({ collection: 'best-sellers' });
+  console.log(products);
   return (
     <>
       <HeaderWithoutHero />
-      <div className="mx-auto mt-[150px] max-w-screen-2xl px-20">
+      <div className="mx-auto mt-[150px] max-w-screen-2xl px-20 py-16">
         <div className="flex gap-x-4 text-center">
           <div className="mb-6 flex w-full flex-col border-b-2 border-black pb-4">
             <h6 className="text-sm font-thin">Cart</h6>

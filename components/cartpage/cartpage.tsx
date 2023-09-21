@@ -4,7 +4,7 @@ import Price from 'components/price';
 import { Button } from 'components/ui/button';
 import { DEFAULT_OPTION } from 'lib/constants';
 import { Cart } from 'lib/shopify/types';
-import { ShoppingBag } from 'lucide-react';
+import { Award, MessageCircle, ShoppingBag, TruckIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import DeleteItemButtonPage from './delete-item-button';
@@ -112,12 +112,36 @@ export const CartProductLayout = ({ cart }: { cart: Cart | undefined }) => {
                 />
               </div>
             </div>
-            <a
+            <Link
               href={cart.checkoutUrl}
-              className="block w-full rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
+              className="block w-full bg-black p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
             >
               Proceed to Checkout
-            </a>
+            </Link>
+            <div className="mt-6 bg-gray-100 px-6 py-6">
+              <p className="text-center text-xs font-normal">Accepted Payment Methods</p>
+              <div className="mt-4 flex flex-row justify-center gap-2">
+                <Image src="/visa-icon.svg" width={50} height={50} alt="Visa" />
+                <Image src="/amex.svg" width={50} height={50} alt="Apple Pay" />
+                <Image src="/mastercard.svg" width={50} height={50} alt="Mastercard" />
+                <Image src="/paypal.svg" width={50} height={50} alt="Paypal" />
+              </div>
+              <div className="mb-6 flex w-full flex-col border-b-2 border-gray-200 pb-4"></div>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <TruckIcon className="h-8 w-8" color="gray" strokeWidth={1} />
+                  <p className="ml-2 text-xs font-normal ">Free shipping on orders over 200€.</p>
+                </div>
+                <div className="flex items-center">
+                  <MessageCircle className="h-8 w-8" color="gray" strokeWidth={1} />
+                  <p className="ml-2 text-xs font-normal ">International delivery</p>
+                </div>
+                <div className="flex items-center">
+                  <Award className="h-8 w-8" color="gray" strokeWidth={1} />
+                  <p className="ml-2 text-xs font-normal ">Authentic products</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

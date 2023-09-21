@@ -76,14 +76,15 @@ export function VariantSelector({
                     </TabsTrigger>
                   ))}
                 </TabsList>
-                <DropdownMenuItem className="focus-visible:outline-none">
+                <DropdownMenuItem className="focus:bg-transparent focus-visible:outline-none">
                   <Button
+                    variant="secondary"
                     onClick={() => {
                       router.replace(pathname, {});
                       setOptionNameLowerCase('');
                       setOptionPrice('');
                     }}
-                    className="w-full border-[1px] border-gray-300 bg-transparent text-black hover:bg-transparent hover:ring-transparent"
+                    className="m-auto w-full transform border-2 bg-transparent transition duration-300 ease-in-out hover:scale-110 hover:bg-black hover:text-white"
                   >
                     All
                   </Button>
@@ -91,8 +92,8 @@ export function VariantSelector({
 
                 {tabNames.map((tabName) => (
                   <TabsContent key={tabName} value={tabName}>
-                    <div className="p-4">
-                      <dd className="grid grid-cols-3 gap-3">
+                    <div className="p-2">
+                      <dd className="grid grid-cols-3">
                         {option.values
                           .filter((value) => value.toLowerCase().startsWith(tabName.toLowerCase()))
                           .map((value) => {
@@ -133,7 +134,7 @@ export function VariantSelector({
                                       !isAvailableForSale ? ' (Out of Stock)' : ''
                                     }`}
                                     className={clsx(
-                                      'flex w-full items-center justify-center rounded-sm border bg-neutral-100 px-4 py-6 text-xs  text-black hover:text-white dark:border-neutral-800 dark:bg-neutral-900',
+                                      'flex w-full items-center justify-center rounded-sm border bg-neutral-100 px-2 py-10 text-xs  text-black hover:text-white dark:border-neutral-800 dark:bg-neutral-900',
                                       {
                                         'cursor-default ring-1 ring-black': isActive,
                                         'ring-1 ring-transparent transition duration-300 ease-in-out hover:scale-110 hover:ring-white ':
@@ -144,8 +145,11 @@ export function VariantSelector({
                                     )}
                                   >
                                     <div className="flex flex-col">
-                                      <b> {`${value}`}</b>
-                                      <p> {variant?.price.amount}</p>
+                                      <p className="font-head text-sm font-black"> {`${value}`}</p>
+                                      <p>
+                                        {' '}
+                                        {variant?.price.currencyCode! + ' ' + variant?.price.amount}
+                                      </p>
                                     </div>
                                   </Button>
                                 </DropdownMenuItem>
