@@ -1,8 +1,8 @@
-import LowerFooter from 'components/footer/lower-footer';
+import Footer from 'components/footer/footer';
 import TopBar from 'components/header/topbar';
 import { ensureStartsWith } from 'lib/utils';
 import localFont from 'next/font/local';
-import { ReactNode, Suspense } from 'react';
+import { ReactNode } from 'react';
 import './globals.css';
 
 // eslint-disable-next-line no-unused-vars
@@ -50,11 +50,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body className="bg-white text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <TopBar />
 
-        <Suspense>
-          <main>{children}</main>
-        </Suspense>
+        <main>{children}</main>
         <footer>
-          <LowerFooter />
+          <Footer />
         </footer>
       </body>
     </html>

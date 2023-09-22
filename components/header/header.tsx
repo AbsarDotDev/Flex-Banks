@@ -2,8 +2,6 @@ import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import Navigation from 'components/navigation';
 import { Search, User } from 'lucide-react';
-import Image from 'next/image';
-import logo from 'public/1080p.gif';
 import { Suspense } from 'react';
 import MobileDrawer from './mobile-drawer';
 
@@ -12,7 +10,7 @@ export default function Header() {
     <>
       <div
         id="intro"
-        className=" bg-image"
+        className="bg-image object-cover"
         style={{
           backgroundImage:
             'url(https://soleboy.com/cdn/shop/files/DDBC9D99-E43E-4454-8136-8BBACE9DDDDE_1728x.jpg?v=1689060371)',
@@ -29,7 +27,9 @@ export default function Header() {
               <Search className="w-8" />
             </div>
             <div className="py-6">
-              <Image src={logo} alt="thumbnail" width={50} />
+              <video autoPlay loop muted className="h-20 w-20 object-cover">
+                <source src="/1080p.webm" type="video/mp4" />
+              </video>
             </div>
             <div>
               <div className="flex items-center">
