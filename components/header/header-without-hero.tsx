@@ -3,7 +3,6 @@ import OpenCart from 'components/cart/open-cart';
 import Navigation from 'components/navigation';
 import { Search, User } from 'lucide-react';
 import Image from 'next/image';
-import logo from 'public/1080p.gif';
 import { Suspense } from 'react';
 import MobileDrawer from './mobile-drawer';
 
@@ -17,7 +16,7 @@ export default function HeaderWithoutHero() {
             <Search className="w-8" />
           </div>
           <div className="py-6">
-            <Image src={logo} alt="thumbnail" width={70} />
+            <Image src={'/logo_optimized.gif'} alt="thumbnail" width={80} height={80} />
           </div>
           <div>
             <div className="flex items-center">

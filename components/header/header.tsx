@@ -3,7 +3,6 @@ import OpenCart from 'components/cart/open-cart';
 import Navigation from 'components/navigation';
 import { Search, User } from 'lucide-react';
 import Image from 'next/image';
-import logo from 'public/1080p.gif';
 import { Suspense } from 'react';
 import MobileDrawer from './mobile-drawer';
 
@@ -14,8 +13,7 @@ export default function Header() {
         id="intro"
         className=" bg-image"
         style={{
-          backgroundImage:
-            'url(https://soleboy.com/cdn/shop/files/DDBC9D99-E43E-4454-8136-8BBACE9DDDDE_1728x.jpg?v=1689060371)',
+          backgroundImage: 'url(/hero.jpg)',
           backgroundRepeat: 'no-repeat', // Prevent background image from repeating
           backgroundSize: 'cover', // Adjust the background image size
           backgroundPosition: 'center center',
@@ -29,7 +27,7 @@ export default function Header() {
               <Search className="w-8" />
             </div>
             <div className="py-6">
-              <Image src={logo} alt="thumbnail" width={50} />
+              <Image src={'/logo_optimized.gif'} alt="thumbnail" width={100} height={100} />
             </div>
             <div>
               <div className="flex items-center">
