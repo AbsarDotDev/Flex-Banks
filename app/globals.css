@@ -76,10 +76,10 @@ h5,
 h6 {
   @apply font-head font-bold;
 }
-.prd-title,
+/* .prd-title,
 .prd-price {
   @apply font-para text-base font-bold;
-}
+} */
 p,
 button {
   @apply font-para text-sm font-light;

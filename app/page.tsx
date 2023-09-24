@@ -33,7 +33,7 @@ export default async function HomePage() {
         <Link href={'/collection/new-arrivals'}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
-        <div className="my-6 grid grid-cols-1 gap-x-2 px-10 md:grid-cols-4">
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-4">
           {newArrivs.map((product) => {
             return <ProductCard key={product.handle} product={product} />;
           })}
@@ -41,7 +41,13 @@ export default async function HomePage() {
       </div>
 
       <div className="thumbnail w-full">
-        <Image src={'/thumbnail.jpg'} width={10000} height={300} alt="thumbnail" className="" />
+        <Image
+          src={'/thumbnail.jpg'}
+          width={10000}
+          height={300}
+          alt="thumbnail"
+          className="h-[300px] md:h-0"
+        />
       </div>
 
       <div className="BEST_SELLERS text-center">
@@ -51,7 +57,7 @@ export default async function HomePage() {
         <Link href={''}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
-        <div className="my-6 grid grid-cols-1 gap-x-2 px-10 md:grid-cols-3">
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
           {bestSellers.map((product, index: number) => {
             return <ProductCard key={index} product={product} />;
           })}
@@ -59,7 +65,7 @@ export default async function HomePage() {
       </div>
 
       <div className="thumbnail-vid py-16">
-        <video autoPlay muted controls className="h-[350px] w-full object-cover md:h-[550px]">
+        <video autoPlay muted controls className="h-[400px] w-full object-cover md:h-[550px]">
           <source src="/vidthumb.mp4" type="video/mp4" />
         </video>
       </div>
@@ -71,7 +77,7 @@ export default async function HomePage() {
         <Link href={''}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
-        <div className="my-6 grid grid-cols-1 gap-x-2 px-10 md:grid-cols-3">
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
           {mystcollect.map((product, index: number) => {
             return <ProductCard key={index} product={product} />;
           })}
