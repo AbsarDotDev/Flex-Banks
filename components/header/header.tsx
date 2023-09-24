@@ -12,8 +12,7 @@ export default function Header() {
         id="intro"
         className="bg-image object-cover"
         style={{
-          backgroundImage:
-            'url(https://soleboy.com/cdn/shop/files/DDBC9D99-E43E-4454-8136-8BBACE9DDDDE_1728x.jpg?v=1689060371)',
+          backgroundImage: 'url(/hero.jpg)',
           backgroundRepeat: 'no-repeat', // Prevent background image from repeating
           backgroundSize: 'cover', // Adjust the background image size
           backgroundPosition: 'center center',
