@@ -1,0 +1,17 @@
+import SearchBar from 'components/layout/navbar/search';
+import { Search } from 'lucide-react';
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '../ui/sheet';
+export function SheetSide() {
+  return (
+    <Sheet>
+      <SheetTrigger>
+        <Search />
+      </SheetTrigger>
+      <SheetContent side={'top'} className="w-full justify-center px-20">
+        <SheetHeader>
+          <SearchBar />
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
+  );
+}

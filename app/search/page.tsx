@@ -1,5 +1,4 @@
-import Grid from 'components/grid';
-import ProductGridItems from 'components/layout/product-grid-items';
+import { ProductCard } from 'components/product';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
 
@@ -24,7 +23,7 @@ export default async function SearchPage({
   return (
     <>
       {searchValue ? (
-        <p className="mb-4">
+        <p className="text-xl">
           {products.length === 0
             ? 'There are no products that match '
             : `Showing ${products.length} ${resultsText} for `}
@@ -32,9 +31,11 @@ export default async function SearchPage({
         </p>
       ) : null}
       {products.length > 0 ? (
-        <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <ProductGridItems products={products} />
-        </Grid>
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-4 md:grid-cols-3">
+          {products.map((product) => {
+            return <ProductCard key={product.handle} product={product} />;
+          })}
+        </div>
       ) : null}
     </>
   );

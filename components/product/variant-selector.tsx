@@ -65,11 +65,11 @@ export function VariantSelector({
               </div>
             </div>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="relative justify-start px-7 py-4">
+          <DropdownMenuContent className="relative justify-start px-4 py-4 md:px-7">
             <div className="flex flex-col gap-y-8">
               <h3>Sizes and Conversions</h3>
-              <Tabs defaultValue="US W" className="w-[400px] ">
-                <TabsList className="mb-10 gap-x-4">
+              <Tabs defaultValue="US W" className="w-[320px] md:w-[400px] ">
+                <TabsList className="mb-10 flex-wrap gap-x-4 bg-muted">
                   {tabNames.map((tabName) => (
                     <TabsTrigger key={tabName} value={tabName}>
                       {tabName}
@@ -93,7 +93,7 @@ export function VariantSelector({
                 {tabNames.map((tabName) => (
                   <TabsContent key={tabName} value={tabName}>
                     <div className="p-2">
-                      <dd className="grid grid-cols-3">
+                      <dd className="grid grid-cols-2 md:grid-cols-3">
                         {option.values
                           .filter((value) => value.toLowerCase().startsWith(tabName.toLowerCase()))
                           .map((value) => {

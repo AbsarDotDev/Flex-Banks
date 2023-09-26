@@ -1,6 +1,6 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
-import Navigation from 'components/navigation';
+import Navigation from 'components/header/navigation';
 import { Search, User } from 'lucide-react';
 import { Suspense } from 'react';
 import MobileDrawer from './mobile-drawer';

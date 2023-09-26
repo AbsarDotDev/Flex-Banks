@@ -19,6 +19,7 @@ export default async function HomePage() {
   const newArrivs = await getCollectionProducts({ collection: 'new-arrivals' });
   const bestSellers = await getCollectionProducts({ collection: 'best-sellers' });
   const mystcollect = await getCollectionProducts({ collection: 'mystery-collection' });
+
   if (!newArrivs?.length) return 'No Products Found';
   if (!bestSellers?.length) return 'No Products Found';
   if (!mystcollect?.length) return 'No Products Found';
@@ -57,7 +58,7 @@ export default async function HomePage() {
         <Link href={''}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
-        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-4">
           {bestSellers.map((product, index: number) => {
             return <ProductCard key={index} product={product} />;
           })}
@@ -77,7 +78,7 @@ export default async function HomePage() {
         <Link href={''}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
-        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-4">
           {mystcollect.map((product, index: number) => {
             return <ProductCard key={index} product={product} />;
           })}
