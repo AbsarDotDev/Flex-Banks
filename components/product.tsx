@@ -27,10 +27,13 @@ export function ProductCard({ product }: { product: Product }) {
   };
 
   return (
-    <div key={product.handle} className="relative flex w-full flex-col items-center justify-center">
+    <div
+      key={product.handle}
+      className="relative my-8 flex w-full transform flex-col items-center justify-center rounded-xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+    >
       <div className="relative w-full">
         <div
-          className="relative w-full"
+          className="relative w-full border-b-2 border-gray-200"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -49,7 +52,7 @@ export function ProductCard({ product }: { product: Product }) {
                       width={300}
                       height={300}
                       src={`${img.url}`}
-                      className="h-full object-cover md:h-[400px]"
+                      className="object-cover md:h-[400px]"
                       alt={`Carousel Image ${index + 1}`}
                     />
                   </Link>
@@ -59,7 +62,7 @@ export function ProductCard({ product }: { product: Product }) {
           </Carousel>
           {isHovered && (
             <Button
-              className="absolute bottom-8 left-2 right-2 w-auto rounded-none bg-white px-4 py-2 font-para text-black hover:bg-white hover:text-black"
+              className="absolute bottom-10 left-2 right-2 hidden w-auto rounded-none bg-white px-4 py-2 font-para text-black hover:bg-white hover:text-black md:block"
               style={{ zIndex: 1 }}
             >
               Quick Buy
@@ -67,10 +70,10 @@ export function ProductCard({ product }: { product: Product }) {
           )}
         </div>
       </div>
-      <div className="text-center">
+      <div className="py-6 text-center font-head text-2xl md:text-xl">
         <Link href={`/product/${product.handle}`} className="">
           <div className="flex flex-col items-center">
-            <span className="prd-title text-center">{product.title}</span>
+            <span className="prd-title text-center font-bold">{product.title}</span>
             {OnSale ? (
               <div className="flex flex-row items-center gap-x-2">
                 <span className="prd-price text-center">
@@ -92,7 +95,7 @@ export function ProductCard({ product }: { product: Product }) {
               </span>
             ) : (
               <div className="flex items-center gap-x-2">
-                <span className="font-para text-xs">From</span>
+                <span className="font-para text-lg md:text-base">From</span>
                 <span className="prd-price text-center">
                   {currencyFormatter.format(Number(product.priceRange.minVariantPrice.amount))}
                   {' - '}

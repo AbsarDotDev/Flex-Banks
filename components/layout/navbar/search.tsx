@@ -1,19 +1,37 @@
 'use client';
-
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { getProduct } from 'lib/shopify';
 import { createUrl } from 'lib/utils';
+import { Search } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import React, { ChangeEvent, Suspense, useEffect, useState } from 'react';
+import SearchQuick from './searchquick';
 
-export default function Search() {
+export default function SearchBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [searchValue, setSearchValue] = useState('');
+  const [quickParams, setQuickParams] = useState(new URLSearchParams());
 
   useEffect(() => {
     setSearchValue(searchParams?.get('q') || '');
   }, [searchParams, setSearchValue]);
+
+  async function onChangeSearch(e: ChangeEvent<HTMLInputElement>) {
+    setSearchValue(e.target.value);
+    console.log(e.target.value);
+    const product = await getProduct('air force 1 cactus');
+    console.log(product);
+    const search = e.target as HTMLInputElement;
+    const newQuickParams = new URLSearchParams(quickParams.toString());
+
+    if (search.value) {
+      newQuickParams.set('q', search.value);
+    } else {
+      newQuickParams.delete('q');
+    }
+
+    setQuickParams(newQuickParams); // Update quickParams with the newQuickParams
+  }
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,20 +48,28 @@ export default function Search() {
 
     router.push(createUrl('/search', newParams));
   }
-
+  console.log(quickParams.get('q'));
   return (
-    <form onSubmit={onSubmit} className="w-max-[550px] relative w-full lg:w-80 xl:w-full">
-      <input
-        type="text"
-        name="search"
-        placeholder="Search for products..."
-        autoComplete="off"
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
-        className="w-full rounded-lg border bg-white px-4 py-2 text-sm text-black placeholder:text-neutral-500 dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
-      />
-      <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
-        <MagnifyingGlassIcon className="h-4" />
+    <form onSubmit={onSubmit} className="relative flex h-full w-full max-w-6xl items-center">
+      <div className="searchbar flex w-full items-center rounded-lg bg-gray-200 px-4">
+        <input
+          type="text"
+          name="search"
+          placeholder="Search for products..."
+          autoComplete="off"
+          value={searchValue}
+          onChange={(e) => onChangeSearch(e)}
+          className="w-full border-transparent bg-transparent px-4 py-4 text-black focus:border-transparent focus:outline-none focus:ring-transparent"
+        />
+        <Search className="h-8 text-gray-500" />
+        {/* @ts-ignore */}
+        {searchValue !== '' ? (
+          <Suspense>
+            <SearchQuick searchParams={quickParams} />
+          </Suspense>
+        ) : (
+          <div></div>
+        )}
       </div>
     </form>
   );

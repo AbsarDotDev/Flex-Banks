@@ -5,11 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SubImg2 from 'public/submenu2.webp';
 import { useState } from 'react';
-import OnHoverMenu from './onhovermenu';
+import OnHoverMenu from './on-hover-menu';
 
 export default function MobileDrawer() {
   const [menuLevel, setMenuLevel] = useState('main');
   const [submenuLevel, setSubmenuLevel] = useState('none');
+  const [prevMenuLevel, setPrevMenuLevel] = useState('none');
+  const [PrevSubmenuLevel, setPrevSubmenuLevel] = useState('none');
 
   const [isListVisible, setIsListVisible] = useState(false);
 
@@ -21,11 +23,9 @@ export default function MobileDrawer() {
     setIsListVisible(false);
   };
 
-  // @ts-ignore
-  const goToSubMenu = (submenu) => {
-    // @ts-ignore
+  const goToSubMenu = (submenu: any) => {
     setPrevMenuLevel(menuLevel);
-    // @ts-ignore
+
     setPrevSubmenuLevel(submenuLevel);
     setMenuLevel('submenu');
     setSubmenuLevel(submenu);

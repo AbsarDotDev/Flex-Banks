@@ -3,11 +3,11 @@ import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function LowerFooter() {
+export default function Footer() {
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl">
-        <div className="grid grid-cols-2 gap-6 px-5 py-6 md:grid-cols-4 lg:py-8">
+        <div className="grid grid-cols-1 gap-6 px-7 py-6 md:grid-cols-4 md:px-5 lg:py-8">
           <div>
             <Image src={'/logomain.png'} width={65} height={65} alt="logo" className="my-4" />
             <Instagram className="w-7" />
@@ -84,11 +84,11 @@ export default function LowerFooter() {
             </Button>
           </div>
         </div>
-        <div className="border-t-[1px] border-gray-300 px-5 pb-10 dark:bg-gray-700  md:flex md:items-center md:justify-between">
+        <div className="border-t-[1px] border-gray-300 px-5 pb-10 text-center dark:bg-gray-700 md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-900 dark:text-gray-300 sm:text-center">
             © 2023 <Link href="https://flowbite.com/">FlashBanks™</Link>. All Rights Reserved.
           </span>
-          <div className="mt-4 flex space-x-5 sm:justify-center md:mt-0">
+          <div className="mt-4 flex justify-center space-x-5 md:mt-0">
             <ul className="flex text-[12px]">
               <li className="px-2">
                 <Link href={''}>TERMS OF USE</Link>

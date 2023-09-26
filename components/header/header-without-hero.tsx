@@ -1,8 +1,7 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
-import Navigation from 'components/navigation';
+import Navigation from 'components/header/navigation';
 import { Search, User } from 'lucide-react';
-import Image from 'next/image';
 import { Suspense } from 'react';
 import MobileDrawer from './mobile-drawer';
 
@@ -16,7 +15,9 @@ export default function HeaderWithoutHero() {
             <Search className="w-8" />
           </div>
           <div className="py-6">
-            <Image src={'/logo_optimized.gif'} alt="thumbnail" width={80} height={80} />
+            <video autoPlay loop muted className="h-20 w-20 object-cover">
+              <source src="/1080p.webm" type="video/mp4" />
+            </video>
           </div>
           <div>
             <div className="flex items-center">
