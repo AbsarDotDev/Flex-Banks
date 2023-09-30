@@ -1,3 +1,5 @@
+import HeaderWithoutHero from 'components/header/header-without-hero';
+import FilterList from 'components/layout/search/filter';
 import { ProductCard } from 'components/product';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
@@ -22,21 +24,27 @@ export default async function SearchPage({
 
   return (
     <>
-      {searchValue ? (
-        <p className="text-xl">
-          {products.length === 0
-            ? 'There are no products that match '
-            : `Showing ${products.length} ${resultsText} for `}
-          <span className="font-bold">&quot;{searchValue}&quot;</span>
-        </p>
-      ) : null}
-      {products.length > 0 ? (
-        <div className="my-6 grid grid-cols-1 gap-x-4 px-4 md:grid-cols-3">
-          {products.map((product) => {
-            return <ProductCard key={product.handle} product={product} />;
-          })}
+      <HeaderWithoutHero />
+      <div className="mt-[200px] px-12">
+        <div className="order-none float-right md:order-last md:w-[200px]">
+          <FilterList list={sorting} title="Sort by" />
         </div>
-      ) : null}
+        {searchValue ? (
+          <p className="text-xl">
+            {products.length === 0
+              ? 'There are no products that match '
+              : `Showing ${products.length} ${resultsText} for `}
+            <span className="font-bold">&quot;{searchValue}&quot;</span>
+          </p>
+        ) : null}
+        {products.length > 0 ? (
+          <div className="my-6 grid grid-cols-1 gap-x-6  md:grid-cols-4">
+            {products.map((product) => {
+              return <ProductCard key={product.handle} product={product} />;
+            })}
+          </div>
+        ) : null}
+      </div>
     </>
   );
 }
