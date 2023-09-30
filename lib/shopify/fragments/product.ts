@@ -55,6 +55,14 @@ const productFragment = /* GraphQL */ `
         }
       }
     }
+    collections(first: 250) {
+      edges {
+        node {
+          id
+          handle
+        }
+      }
+    }
     featuredImage {
       ...image
     }

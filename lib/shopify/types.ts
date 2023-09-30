@@ -123,6 +123,7 @@ export type ShopifyProduct = {
     maxVariantPrice: Money;
     minVariantPrice: Money;
   };
+  collections: Connection<ShopifyCollection>;
   compareAtPriceRange: {
     minVariantPrice: Money;
     maxVariantPrice: Money;

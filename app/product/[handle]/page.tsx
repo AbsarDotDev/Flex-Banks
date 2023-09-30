@@ -17,7 +17,6 @@ export async function generateMetadata({
   params: { handle: string };
 }): Promise<Metadata> {
   const product = await getProduct(params.handle);
-
   if (!product) return notFound();
 
   const { url, width, height, altText: alt } = product.featuredImage || {};
@@ -91,7 +90,6 @@ export default async function ProductPage({ params }: { params: { handle: string
               }))}
             /> */}
           </div>
-
           <div className="basis-full lg:basis-[45%]">
             <ProductDescription product={product} />
           </div>
