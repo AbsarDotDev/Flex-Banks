@@ -29,11 +29,11 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div
       key={product.handle}
-      className="relative my-8 flex w-full transform flex-col items-center justify-center rounded-xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+      className="relative my-8 flex w-full transform flex-col items-center justify-center rounded-xl "
     >
-      <div className="relative w-full">
+      <div className="relative h-[420px] w-full">
         <div
-          className="relative w-full border-b-2 border-gray-200"
+          className="relative h-[420px] w-full cursor-pointer overflow-hidden rounded-xl"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -49,10 +49,10 @@ export function ProductCard({ product }: { product: Product }) {
                 <div key={index}>
                   <Link href={`/product/${product.handle}`}>
                     <Image
-                      width={300}
-                      height={300}
+                      width={335}
+                      height={420}
                       src={`${img.url}`}
-                      className="object-cover md:h-[400px]"
+                      className="h-[420px]"
                       alt={`Carousel Image ${index + 1}`}
                     />
                   </Link>
@@ -73,14 +73,14 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="py-6 text-center font-head text-2xl md:text-xl">
         <Link href={`/product/${product.handle}`} className="">
           <div className="flex flex-col items-center">
-            <span className="prd-title text-center font-bold">{product.title}</span>
+            <span className="h-14 text-center text-[14px] font-bold">{product.title}</span>
             {OnSale ? (
               <div className="flex flex-row items-center gap-x-2">
-                <span className="prd-price text-center">
+                <span className="text-center">
                   {currencyFormatter.format(Number(product.priceRange.maxVariantPrice.amount))}{' '}
                   {product.priceRange.maxVariantPrice.currencyCode}
                 </span>
-                <span className=" text-center font-para text-sm text-gray-400 line-through">
+                <span className="text-center font-para text-sm text-gray-400 line-through">
                   {currencyFormatter.format(
                     Number(product.compareAtPriceRange.maxVariantPrice.amount)
                   )}{' '}
@@ -89,14 +89,14 @@ export function ProductCard({ product }: { product: Product }) {
                 </span>
               </div>
             ) : !isVariableProduct ? (
-              <span className="prd-price text-center">
+              <span className="text-center text-[14px]">
                 {currencyFormatter.format(Number(product.priceRange.maxVariantPrice.amount))}{' '}
                 {product.priceRange.maxVariantPrice.currencyCode}
               </span>
             ) : (
               <div className="flex items-center gap-x-2">
                 <span className="font-para text-lg md:text-base">From</span>
-                <span className="prd-price text-center">
+                <span className="text-center text-[14px]">
                   {currencyFormatter.format(Number(product.priceRange.minVariantPrice.amount))}
                   {' - '}
                   {currencyFormatter.format(Number(product.priceRange.maxVariantPrice.amount))}{' '}
