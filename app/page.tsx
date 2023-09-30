@@ -16,9 +16,9 @@ export const metadata = {
   }
 };
 export default async function HomePage() {
-  const newArrivs = await getCollectionProducts({ collection: 'new-arrivals' });
-  const bestSellers = await getCollectionProducts({ collection: 'best-sellers' });
-  const mystcollect = await getCollectionProducts({ collection: 'mystery-collection' });
+  const newArrivs = await getCollectionProducts({ collection: 'shoes' });
+  const bestSellers = await getCollectionProducts({ collection: 'slippers' });
+  const mystcollect = await getCollectionProducts({ collection: 'hoodie' });
 
   if (!newArrivs?.length) return 'No Products Found';
   if (!bestSellers?.length) return 'No Products Found';
