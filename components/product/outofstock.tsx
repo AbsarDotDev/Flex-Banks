@@ -34,7 +34,13 @@ export function PopoverDemo({
   value: string;
   variant: ProductVariant | undefined;
 }) {
-  function handleSubmit() {}
+  const [email, setEmail] = useState('');
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault(); // Prevent the form from submitting and refreshing the page
+    console.log('submit with email:', email);
+    // You can now use the "email" variable to access the entered email.
+  }
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -42,13 +48,6 @@ export function PopoverDemo({
           key={value}
           className={clsx(
             'ml-2 mt-1 flex w-[88%] items-center justify-center rounded-sm border bg-neutral-100 px-2 py-10 text-xs text-black hover:text-white dark:border-neutral-800 dark:bg-neutral-900'
-            // {
-            //   'cursor-default ring-1 ring-black': isActive,
-            //   'ring-1 ring-transparent transition duration-300 ease-in-out hover:scale-110 hover:ring-white ':
-            //     !isActive && isAvailableForSale,
-            //   'relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 before:dark:bg-neutral-700':
-            //     !isAvailableForSale
-            // }
           )}
         >
           <div className="flex flex-col">
@@ -69,15 +68,24 @@ export function PopoverDemo({
             </h4>
           </div>
           <div className="gap-2">
-            <label htmlFor="" className="font-head text-xs font-medium">
-              Phone Number
-            </label>
-            <div className="flex w-full">
-              <PhoneField />
-              <Button onSubmit={handleSubmit} type="submit">
-                Submit
-              </Button>
-            </div>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="" className="font-head text-xs font-medium">
+                E-mail
+              </label>
+              <div className="flex w-full">
+                {/* <PhoneField /> */}
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-[80%] rounded-sm border border-gray-300 px-2 py-1 text-sm focus:border-transparent focus:ring-2 focus:ring-black"
+                />
+                <Button className="ml-1 w-[20%]" type="submit">
+                  Submit
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </PopoverContent>
