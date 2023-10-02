@@ -8,6 +8,7 @@ import { CustomGallery } from 'components/product/custom-gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
+import ScrollToTopButton from '../sticky_cart';
 
 export const runtime = 'edge';
 
@@ -98,6 +99,7 @@ export default async function ProductPage({ params }: { params: { handle: string
           <RelatedProducts id={product.id} />
         </Suspense>
       </div>
+      <ScrollToTopButton product={product} />
     </>
   );
 }
