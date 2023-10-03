@@ -136,7 +136,11 @@ export function VariantSelector({
                               return (
                                 <>
                                   {!isAvailableForSale ? (
-                                    <PopoverDemo value={value} variant={variant} />
+                                    <PopoverDemo
+                                      value={value}
+                                      variant={variant}
+                                      product={product}
+                                    />
                                   ) : (
                                     <DropdownMenuItem className="w-full focus-visible:outline-none">
                                       <Button

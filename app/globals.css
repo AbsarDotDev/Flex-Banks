@@ -124,9 +124,12 @@ button {
     flex-direction: column-reverse !important;
   }
 }
-.header:hover {
+/* .customnav:hover+.header {
   background: #eaeaea;
-}
+} */
+/* .header:hover {
+  background: #eaeaea;
+} */
 /* custom.css */
 .magnify-out-cursor {
   cursor: zoom-out;

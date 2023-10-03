@@ -1,6 +1,6 @@
 'use client';
 import clsx from 'clsx';
-import { ProductVariant } from 'lib/shopify/types';
+import { Product, ProductVariant } from 'lib/shopify/types';
 import { Button } from '../ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 
@@ -29,18 +29,28 @@ function PhoneField() {
 }
 export function PopoverDemo({
   value,
-  variant
+  variant,
+  product
 }: {
   value: string;
   variant: ProductVariant | undefined;
+  product: Product;
 }) {
   const [email, setEmail] = useState('');
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault(); // Prevent the form from submitting and refreshing the page
-    console.log('submit with email:', email);
-    // You can now use the "email" variable to access the entered email.
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await fetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        message: `Hello, I'm interested in product variant: ${value} of product: ${product.title} `
+      })
+    });
+    const data = await res.json();
+    console.log(data);
+  };
   return (
     <Popover>
       <PopoverTrigger asChild>

@@ -9,6 +9,20 @@ import MobileDrawer from './mobile-drawer';
 export default function Header() {
   return (
     <>
+      <script>
+        {`        $(document).ready(function () {
+          $('.customnav').hover(
+            function () {
+              $('.customnav').addClass('border-[2px] border-gray-400 bg-gray-100 text-black');
+            },
+            function () {
+              $('.customnav').removeClass('border-[2px] border-gray-400 bg-gray-100 text-black');
+            }
+          );
+        });
+    `}
+      </script>
+
       <div
         id="intro"
         className="bg-image object-cover"
@@ -40,7 +54,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div className="customnav duration-50 pointer-events-auto hidden transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
+          <div className="customnav duration-10 pointer-events-auto hidden transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
             <Navigation />
           </div>
         </div>
