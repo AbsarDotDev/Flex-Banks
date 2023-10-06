@@ -77,8 +77,8 @@ export async function shopifyFetch<T>({
   variables?: ExtractVariables<T>;
 }): Promise<{ status: number; body: T } | never> {
   try {
-    console.log(domain);
-    console.log(endpoint);
+    // console.log(domain);
+    // console.log(endpoint);
     const result = await fetch(endpoint, {
       method: 'POST',
       headers: {
@@ -438,7 +438,7 @@ export async function getProducts({
       sortKey
     }
   });
-  console.log(res);
+  // console.log(res);
   return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
 }
 

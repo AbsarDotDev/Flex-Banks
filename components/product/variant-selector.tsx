@@ -14,7 +14,6 @@ import {
   DropdownMenuTrigger
 } from '../ui/dropdown-menu';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
-import { PopoverDemo } from './outofstock';
 type Combination = {
   id: string;
   availableForSale: boolean;
@@ -59,7 +58,7 @@ export function VariantSelector({
       {}
     )
   }));
-  console.log(product.availableForSale);
+  // console.log(product.availableForSale);
   return options.map((option) => (
     <>
       <dl className="mb-8" key={option.id}>
@@ -128,7 +127,7 @@ export function VariantSelector({
                                     combination[key] === value && combination.availableForSale
                                 )
                               );
-                              console.log(isAvailableForSale);
+                              // console.log(isAvailableForSale);
                               const isActive = searchParams.get(optionNameLowerCase) === value;
                               const variant = variants.find((variant: ProductVariant) =>
                                 variant.selectedOptions.every((option) => option.value === value)
@@ -136,11 +135,7 @@ export function VariantSelector({
                               return (
                                 <>
                                   {!isAvailableForSale ? (
-                                    <PopoverDemo
-                                      value={value}
-                                      variant={variant}
-                                      product={product}
-                                    />
+                                    <div className="hidden"></div>
                                   ) : (
                                     <DropdownMenuItem className="w-full focus-visible:outline-none">
                                       <Button
@@ -213,7 +208,7 @@ export function VariantSelector({
                 <div className="p-2">
                   <dd className="grid grid-cols-2 md:grid-cols-3">
                     {option.values.map((value) => {
-                      console.log(value);
+                      // console.log(value);
                       const optionSearchParams = new URLSearchParams(searchParams.toString());
                       optionSearchParams.set(option.name.toLowerCase(), value);
                       const optionUrl = createUrl(pathname, optionSearchParams);
