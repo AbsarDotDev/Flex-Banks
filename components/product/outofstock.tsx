@@ -47,7 +47,7 @@ export function OutOfStock({ product }: { product: Product }) {
       <div className="grid gap-4">
         <div className="space-y-3">
           <h1 className="text-[21px] font-black text-black">
-            Sorry This Variant Is Not Avaviable Right Now 😓
+            Sorry This Product Is Not Avaviable Right Now 😓
           </h1>
           <h4 className="text-base font-medium text-gray-500">
             Are you interested in this product variant? Request a restocking!
