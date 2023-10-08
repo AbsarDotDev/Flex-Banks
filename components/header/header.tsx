@@ -40,7 +40,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div className="customnav duration-50 pointer-events-auto hidden transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
+          <div className="customnav duration-10 pointer-events-auto hidden transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
             <Navigation />
           </div>
         </div>

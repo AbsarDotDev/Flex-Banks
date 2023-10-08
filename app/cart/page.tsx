@@ -11,7 +11,7 @@ export default async function Cart() {
     cart = await getCart(cartId);
   }
   const products = await getCollectionProducts({ collection: 'best-sellers' });
-  console.log(products);
+  // console.log(products);
   return (
     <>
       <HeaderWithoutHero />

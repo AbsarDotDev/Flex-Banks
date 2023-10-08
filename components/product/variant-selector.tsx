@@ -58,6 +58,7 @@ export function VariantSelector({
       {}
     )
   }));
+  // console.log(product.availableForSale);
   return options.map((option) => (
     <>
       <dl className="mb-8" key={option.id}>
@@ -126,50 +127,55 @@ export function VariantSelector({
                                     combination[key] === value && combination.availableForSale
                                 )
                               );
+                              // console.log(isAvailableForSale);
                               const isActive = searchParams.get(optionNameLowerCase) === value;
                               const variant = variants.find((variant: ProductVariant) =>
                                 variant.selectedOptions.every((option) => option.value === value)
                               );
                               return (
                                 <>
-                                  <DropdownMenuItem className="w-full focus-visible:outline-none">
-                                    <Button
-                                      key={value}
-                                      aria-disabled={!isAvailableForSale}
-                                      disabled={!isAvailableForSale}
-                                      onClick={() => {
-                                        router.replace(optionUrl, { scroll: false });
-                                        setOptionNameLowerCase(option.name.toLowerCase());
-                                        setOptionPrice(`${variant?.price.amount}`);
-                                      }}
-                                      title={`${option.name} ${value}${
-                                        !isAvailableForSale ? ' (Out of Stock)' : ''
-                                      }`}
-                                      className={clsx(
-                                        'flex w-full items-center justify-center rounded-sm border bg-neutral-100 px-2 py-10 text-xs  text-black hover:text-white dark:border-neutral-800 dark:bg-neutral-900',
-                                        {
-                                          'cursor-default ring-1 ring-black': isActive,
-                                          'ring-1 ring-transparent transition duration-300 ease-in-out hover:scale-110 hover:ring-white ':
-                                            !isActive && isAvailableForSale,
-                                          'relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 before:dark:bg-neutral-700':
-                                            !isAvailableForSale
-                                        }
-                                      )}
-                                    >
-                                      <div className="flex flex-col">
-                                        <p className="font-head text-sm font-black">
-                                          {' '}
-                                          {`${value}`}
-                                        </p>
-                                        <p>
-                                          {' '}
-                                          {variant?.price.currencyCode! +
-                                            ' ' +
-                                            variant?.price.amount}
-                                        </p>
-                                      </div>
-                                    </Button>
-                                  </DropdownMenuItem>
+                                  {!isAvailableForSale ? (
+                                    <div className="hidden"></div>
+                                  ) : (
+                                    <DropdownMenuItem className="w-full focus-visible:outline-none">
+                                      <Button
+                                        key={value}
+                                        // aria-disabled={!isAvailableForSale}
+                                        // disabled={!isAvailableForSale}
+                                        onClick={() => {
+                                          router.replace(optionUrl, { scroll: false });
+                                          setOptionNameLowerCase(option.name.toLowerCase());
+                                          setOptionPrice(`${variant?.price.amount}`);
+                                        }}
+                                        title={`${option.name} ${value}${
+                                          !isAvailableForSale ? ' (Out of Stock)' : ''
+                                        }`}
+                                        className={clsx(
+                                          'flex w-full items-center justify-center rounded-sm border bg-neutral-100 px-2 py-10 text-xs  text-black hover:text-white dark:border-neutral-800 dark:bg-neutral-900',
+                                          {
+                                            'cursor-default ring-1 ring-black': isActive,
+                                            'ring-1 ring-transparent transition duration-300 ease-in-out hover:scale-110 hover:ring-white ':
+                                              !isActive && isAvailableForSale,
+                                            'relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 before:dark:bg-neutral-700':
+                                              !isAvailableForSale
+                                          }
+                                        )}
+                                      >
+                                        <div className="flex flex-col">
+                                          <p className="font-head text-sm font-black">
+                                            {' '}
+                                            {`${value}`}
+                                          </p>
+                                          <p>
+                                            {' '}
+                                            {variant?.price.currencyCode! +
+                                              ' ' +
+                                              variant?.price.amount}
+                                          </p>
+                                        </div>
+                                      </Button>
+                                    </DropdownMenuItem>
+                                  )}
                                 </>
                               );
                             })}
@@ -202,7 +208,7 @@ export function VariantSelector({
                 <div className="p-2">
                   <dd className="grid grid-cols-2 md:grid-cols-3">
                     {option.values.map((value) => {
-                      console.log(value);
+                      // console.log(value);
                       const optionSearchParams = new URLSearchParams(searchParams.toString());
                       optionSearchParams.set(option.name.toLowerCase(), value);
                       const optionUrl = createUrl(pathname, optionSearchParams);

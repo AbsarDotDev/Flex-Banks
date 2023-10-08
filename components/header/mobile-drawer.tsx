@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SubImg2 from 'public/submenu2.webp';
 import { useState } from 'react';
-import OnHoverMenu from './on-hover-menu';
 
 export default function MobileDrawer() {
   const [menuLevel, setMenuLevel] = useState('main');
@@ -53,25 +52,26 @@ export default function MobileDrawer() {
             {menuLevel === 'main' && (
               <ul className="px-4 font-head text-lg uppercase text-gray-800  animate-in slide-in-from-right">
                 <li className="py-4">
-                  <Link href={'#'}>new arrivals</Link>
-                </li>
-                <li className="py-4">
-                  <Link href={'#'}>sale</Link>
-                </li>
-                <li className="py-4" onMouseEnter={showList} onMouseLeave={hideList}>
-                  menswear
-                  <ChevronRight className="float-right inline-block w-6 pb-[1px]" />
-                  {isListVisible && <OnHoverMenu />}
-                </li>
-                <li className="py-4">
-                  <Link href={'#'}>womenswear</Link>
+                  <Link href={'/collection/shoes'}> Shoes</Link>
                 </li>
                 <li className="py-4">
                   <button
                     className="font-head text-lg uppercase"
                     onClick={() => goToSubMenu('collections')}
                   >
-                    collections
+                    Slipper
+                    <ChevronRight className="float-right inline-block w-6 pb-[1px]" />
+                  </button>
+                </li>
+                <li className="py-4">
+                  <Link href={'/collection/shirt'}> Shirt</Link>
+                </li>
+                <li className="py-4">
+                  <button
+                    className="font-head text-lg uppercase"
+                    onClick={() => goToSubMenu('collections')}
+                  >
+                    Hoodies
                     <ChevronRight className="float-right inline-block w-6 pb-[1px]" />
                   </button>
                 </li>
@@ -112,27 +112,18 @@ export default function MobileDrawer() {
                   <li className="pt-3 text-center text-sm">explore the archives</li>
                   <li className="py-3 text-center text-2xl">lookbook</li>
                   <li className="py-4">
-                    <button
-                      className="font-head text-lg uppercase"
-                      onClick={() => goToSubMenu('collection1')}
-                    >
-                      Collection 1
+                    <button className="font-head text-lg uppercase">
+                      <Link href={'#'}> Collection 1</Link>
                     </button>
                   </li>
                   <li className="py-4">
-                    <button
-                      className="font-head text-lg uppercase"
-                      onClick={() => goToSubMenu('collection2')}
-                    >
-                      Collection 2
+                    <button className="font-head text-lg uppercase">
+                      <Link href={'#'}> Collection 2</Link>
                     </button>
                   </li>
                   <li className="py-4">
-                    <button
-                      className="font-head text-lg uppercase"
-                      onClick={() => goToSubMenu('collection3')}
-                    >
-                      Collection 3
+                    <button className="font-head text-lg uppercase">
+                      <Link href={'#'}> Collection 3</Link>
                     </button>
                   </li>
                 </ul>
