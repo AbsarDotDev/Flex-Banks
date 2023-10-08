@@ -9,6 +9,7 @@ const productFragment = /* GraphQL */ `
     title
     description
     descriptionHtml
+
     options {
       id
       name
@@ -34,12 +35,14 @@ const productFragment = /* GraphQL */ `
         currencyCode
       }
     }
+
     variants(first: 250) {
       edges {
         node {
           id
           title
           availableForSale
+
           selectedOptions {
             name
             value
