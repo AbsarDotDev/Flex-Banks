@@ -112,8 +112,8 @@ async function RelatedProducts({ id }: { id: string }) {
   return (
     <div className="py-8 ">
       <h2 className="mb-4 px-10 text-2xl font-bold">Related Products</h2>
-      <div className="grid grid-cols-1 gap-x-2 px-10 md:grid-cols-4">
-        {relatedProducts.map((product) => (
+      <div className="grid grid-cols-1 gap-x-2 px-10 md:grid-cols-3">
+        {relatedProducts.slice(0, 6).map((product) => (
           <ProductCard key={product.handle} product={product} />
         ))}
       </div>

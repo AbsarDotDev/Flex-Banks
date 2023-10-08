@@ -95,11 +95,8 @@ export function ProductCard({ product }: { product: Product }) {
               </span>
             ) : (
               <div className="flex items-center gap-x-2">
-                <span className="font-para text-lg md:text-base">From</span>
                 <span className="text-center text-[14px]">
                   {currencyFormatter.format(Number(product.priceRange.minVariantPrice.amount))}
-                  {' - '}
-                  {currencyFormatter.format(Number(product.priceRange.maxVariantPrice.amount))}{' '}
                   {product.priceRange.maxVariantPrice.currencyCode}
                 </span>
               </div>

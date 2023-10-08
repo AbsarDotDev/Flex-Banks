@@ -3,28 +3,6 @@ import { Product } from 'lib/shopify/types';
 import { Button } from '../ui/button';
 
 import { useState } from 'react';
-import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
-function PhoneField() {
-  // `value` will be the parsed phone number in E.164 format.
-  // Example: "+12133734253".
-  const [value, setValue] = useState();
-  return (
-    <PhoneInput
-      defaultCountry="FR"
-      placeholder="Enter your phone number"
-      value={value}
-      onChange={() => setValue}
-      error={
-        value
-          ? isValidPhoneNumber(value)
-            ? undefined
-            : 'Invalid phone number'
-          : 'Phone number required'
-      }
-    />
-  );
-}
 export function OutOfStock({ product }: { product: Product }) {
   const [email, setEmail] = useState('');
 
@@ -43,7 +21,6 @@ export function OutOfStock({ product }: { product: Product }) {
   };
   return (
     <>
-      <div className="flex flex-col"></div>
       <div className="grid gap-4">
         <div className="space-y-3">
           <h1 className="text-[21px] font-black text-black">

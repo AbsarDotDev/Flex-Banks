@@ -38,7 +38,7 @@ export default async function SearchPage({
           </p>
         ) : null}
         {products.length > 0 ? (
-          <div className="my-6 grid grid-cols-1 gap-x-6  md:grid-cols-4">
+          <div className="my-6 grid grid-cols-1 gap-x-6  md:grid-cols-3">
             {products.map((product) => {
               return <ProductCard key={product.handle} product={product} />;
             })}
