@@ -1,30 +1,61 @@
-import { Button } from 'components/ui/button';
-import { Instagram } from 'lucide-react';
+import { CheckCircle2, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
-      <div className="mx-auto w-full max-w-screen-xl">
-        <div className="grid grid-cols-1 gap-6 px-7 py-6 md:grid-cols-4 md:px-5 lg:py-8">
+      <div className="mx-auto w-full max-w-screen-2xl">
+        <div className="grid grid-cols-1 gap-8 py-6 md:grid-cols-5 md:px-5 lg:py-8">
           <div>
             <Image src={'/logomain.png'} width={65} height={65} alt="logo" className="my-4" />
             <Instagram className="w-7" />
           </div>
           <div>
-            <h2 className="mb-5 text-xl font-semibold uppercase text-gray-900 dark:text-white">
-              Flashbanks
+            <div className="flex ">
+              <h2 className="mb-5 text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
+                entreprise certifiée
+              </h2>
+              <CheckCircle2 className="ml-1 rounded-full bg-blue-600 text-white" />
+            </div>
+            <div>
+              <p className="text-[15px] font-medium leading-snug">
+                Entrepôt <br />
+                66 Av des champs-Élysées <br />
+                75008 Paris
+              </p>
+            </div>
+          </div>
+          <div>
+            <h2 className="mb-5 text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
+              notre mission
             </h2>
-            <ul className="font-medium text-gray-900 dark:text-gray-400">
+            <p className="text-[15px] font-medium leading-snug">
+              Notre mission est de vous fournir les meilleurs produits de qualité au meilleur prix.
+            </p>
+          </div>
+          <div>
+            <h2 className="mb-5 text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
+              nous contacter
+            </h2>
+            <p className="text-[15px] font-medium leading-snug">
+              E-mail: officalflexbank@gmail.com
+            </p>
+            <p className="text-[15px] font-medium leading-snug">Phone: 0698897299</p>
+          </div>
+          <div>
+            <h2 className="mb-5 text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
+              aide
+            </h2>
+            <ul className="font-para text-[15px] font-medium leading-snug text-gray-900 dark:text-gray-400">
               <li className="mb-2">
-                <Link href="#" className="hover:underline">
-                  About
+                <Link href="#" className="uppercase hover:underline">
+                  Faq
                 </Link>
               </li>
               <li className="mb-2">
-                <Link href="#" className="hover:underline">
-                  Download The App
+                <Link href="#" className="uppercase hover:underline">
+                  Contact
                 </Link>
               </li>
               <li className="mb-2">
@@ -38,50 +69,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
-          <div>
-            <h2 className="mb-5 text-xl font-semibold uppercase text-gray-900 dark:text-white">
-              CUSTOMER CARE
-            </h2>
-            <ul className="font-medium text-gray-900 dark:text-gray-400">
-              <li className="mb-2">
-                <Link href="#" className="hover:underline">
-                  Shipping + Returns
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link href="#" className="hover:underline">
-                  Sizing
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link href="#" className="hover:underline">
-                  FAQ
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link href="#" className="hover:underline">
-                  Track My Order
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link href="#" className="hover:underline">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="mb-5 text-xl font-semibold uppercase text-gray-900 dark:text-white">
-              BECOME A VIP MEMBER
-            </h2>
-            <p className="text-gray-900">
-              Stay up to date with new collections, promotions and exclusive content.
-            </p>
-            <input type="text" placeholder="Enter Email" className="mb-2 mt-5" />
-            <Button className="rounded-none bg-black px-6 py-4 text-[12px] uppercase text-white">
-              Sign Up
-            </Button>
           </div>
         </div>
         <div className="border-t-[1px] border-gray-300 px-5 pb-10 text-center dark:bg-gray-700 md:flex md:items-center md:justify-between">

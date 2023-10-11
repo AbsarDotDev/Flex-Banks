@@ -1,4 +1,5 @@
 import Header from 'components/header/header';
+import NewsLetter from 'components/news_letter';
 import { ProductCard } from 'components/product';
 import { Button } from 'components/ui/button';
 import { getCollectionProducts } from 'lib/shopify';
@@ -118,6 +119,7 @@ export default async function HomePage() {
           />
         </div>
       </div>
+      <NewsLetter />
     </>
   );
 }
