@@ -29,7 +29,7 @@ export default async function NewsLetter() {
           </div>
         </form>
 
-        <p className="newsletter-form-footer px-[150px] pt-4 text-center font-head text-lg text-gray-600 dark:text-gray-300">
+        <p className="newsletter-form-footer px-[150px] pt-4 text-center font-head text-[14px] text-gray-600 dark:text-gray-300">
           Sign up to our vip mailing list for exclusive discounts, secret sales and hear news, plus
           10% off your first order. By entering your email adress, you are agreeing to our{' '}
           <Link
