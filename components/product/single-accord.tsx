@@ -11,21 +11,20 @@ const AccordionSection = () => {
   };
 
   return (
-    <div className={`rounded-m border`}>
-      <div onClick={toggleAccordion} className="flex items-center justify-between">
+    <div className={`rounded-m border-b border-gray-800 py-2`}>
+      <button onClick={toggleAccordion} className="flex w-full items-center justify-between">
         {' '}
-        <span className="flex items-center justify-start font-para text-[15px] font-medium uppercase text-black">
-          {/* <CheckCircle2 className="mr-2" /> */}
+        <p className="flex items-center justify-start font-para text-[15px] font-medium uppercase text-black">
           Description
-        </span>
+        </p>
         {isOpen ? (
-          <ChevronDown className="h-4 w-4 rotate-180 transform" />
+          <ChevronDown className="h-4 w-4 rotate-180 transform duration-300" />
         ) : (
-          <ChevronDown className="h-4 w-4" />
+          <ChevronDown className="h-4 w-4 rotate-0 transform duration-300" />
         )}
-      </div>
+      </button>
       {isOpen ? (
-        <div className="mt-4">
+        <div className="mt-4 transform duration-700">
           <p className="font-xs text-left font-head text-gray-600">
             <span className="font-black text-gray-800">Drake</span> and{' '}
             <span className="font-black text-gray-800">Nike</span> continue their collaboration
@@ -60,7 +59,10 @@ const AccordionSection = () => {
           </p>
         </div>
       ) : (
-        <div className="mt-4 h-12 overflow-hidden bg-gradient-to-t " onClick={toggleAccordion}>
+        <div
+          className="mt-4 h-12 transform overflow-hidden duration-700 "
+          onClick={toggleAccordion}
+        >
           <p className="font-xs text-left font-head text-gray-600">
             <span className="font-black text-gray-800">Drake</span> and{' '}
             <span className="font-black text-gray-800">Nike</span> continue their collaboration
