@@ -16,6 +16,7 @@ export const metadata = {
     type: 'website'
   }
 };
+
 export default async function HomePage() {
   const newArrivs = await getCollectionProducts({ collection: 'shoes' });
   const bestSellers = await getCollectionProducts({ collection: 'slippers' });
