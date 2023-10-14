@@ -3,6 +3,7 @@ import { Product } from 'lib/shopify/types';
 import { Button } from '../ui/button';
 
 import { useState } from 'react';
+
 export function OutOfStock({ product }: { product: Product }) {
   const [email, setEmail] = useState('');
 
@@ -16,8 +17,6 @@ export function OutOfStock({ product }: { product: Product }) {
         message: `Hello, I'm interested in product ${product.title} `
       })
     });
-    const data = await res.json();
-    // console.log(data);
   };
   return (
     <>
