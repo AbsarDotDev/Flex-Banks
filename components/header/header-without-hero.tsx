@@ -9,7 +9,7 @@ import MobileDrawer from './mobile-drawer';
 export default function HeaderWithoutHero() {
   return (
     <>
-      <div className="header fixed top-8 z-[999] w-full bg-black bg-opacity-80 text-white">
+      <div className="header top-8 z-[999] w-full bg-gray-100 bg-opacity-80 text-white">
         <div className="flex w-full items-center justify-between px-6">
           <div className="flex">
             <MobileDrawer />
@@ -29,7 +29,7 @@ export default function HeaderWithoutHero() {
             </div>
           </div>
         </div>
-        <div className="customnav duration-50 pointer-events-auto hidden transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
+        <div className="customnav duration-50 pointer-events-auto hidden bg-white transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
           <Navigation />
         </div>
       </div>
