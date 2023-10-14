@@ -4,7 +4,7 @@ import trop from 'public/trop.jpg';
 export default function OnHoverMenu() {
   return (
     <>
-      <div className=" bg-gray-100 md:fixed md:left-0 md:z-[999] md:mt-[11px] md:w-[100%]">
+      <div className=" bg-gray-100 md:absolute md:left-0 md:z-[999] md:mt-[11px] md:w-[100%]">
         <div className="res text-black md:w-[100%]">
           <div className="flex w-1/2 flex-col items-center justify-center">
             <p className="my-2">LATEST IN:</p>

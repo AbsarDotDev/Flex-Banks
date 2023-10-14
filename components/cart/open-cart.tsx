@@ -11,7 +11,7 @@ export default function OpenCart({
   return (
     <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-transparent text-white transition-colors dark:border-neutral-700 dark:text-white">
       <ShoppingBasket
-        className={clsx('h-12 transition-all ease-in-out hover:scale-110 ', className)}
+        className={clsx('h-12 text-black transition-all ease-in-out hover:scale-110', className)}
       />
 
       {quantity ? (

@@ -1,7 +1,6 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import Navigation from 'components/header/navigation';
-import { User } from 'lucide-react';
 import { Suspense } from 'react';
 import { SheetSide } from './head-search';
 import MobileDrawer from './mobile-drawer';
@@ -22,14 +21,14 @@ export default function HeaderWithoutHero() {
           </div>
           <div>
             <div className="flex items-center">
-              <User className="w-10" />
+              {/* <User className="w-10 text-black" /> */}
               <Suspense fallback={<OpenCart />}>
                 <Cart />
               </Suspense>
             </div>
           </div>
         </div>
-        <div className="customnav duration-50 pointer-events-auto hidden bg-white py-2 transition hover:border-b-[2px] hover:text-black md:block">
+        <div className="customnav duration-50 pointer-events-auto hidden bg-white py-2 transition hover:text-black md:block">
           <Navigation hero={false} />
         </div>
       </div>

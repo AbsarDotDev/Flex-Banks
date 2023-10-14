@@ -5,7 +5,7 @@ export function SheetSide() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Search />
+        <Search className="text-black" />
       </SheetTrigger>
       <SheetContent side={'top'} className="w-full justify-center px-20">
         <SheetHeader>

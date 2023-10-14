@@ -26,8 +26,8 @@ const TopBar = () => {
       <div className="animate__animated animate__fadeInUp animate__faster text-white">
         <p className="text-sm">{texts[currentIndex]}</p>
       </div>
-
-      <p>Currency Converter here</p>
+      <div></div>
+      {/* <p>Currency Converter here</p> */}
     </div>
   );
 };
