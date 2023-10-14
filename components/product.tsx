@@ -62,7 +62,7 @@ export function ProductCard({ product }: { product: Product }) {
           </Carousel>
           {isHovered && (
             <Button
-              className="absolute bottom-10 left-2 right-2 hidden w-auto rounded-none bg-white px-4 py-2 font-para text-black hover:bg-white hover:text-black md:block"
+              className="absolute bottom-10 left-2 right-2 hidden w-[90%] rounded-none bg-gray-50 px-4 py-2 font-para text-black hover:bg-white hover:text-black md:block"
               style={{ zIndex: 1 }}
             >
               Quick Buy
