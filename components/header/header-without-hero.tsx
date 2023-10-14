@@ -29,8 +29,8 @@ export default function HeaderWithoutHero() {
             </div>
           </div>
         </div>
-        <div className="customnav duration-50 pointer-events-auto hidden bg-white transition hover:border-b-[2px] hover:border-gray-400 hover:bg-gray-100 hover:text-black md:block">
-          <Navigation />
+        <div className="customnav duration-50 pointer-events-auto hidden bg-white py-2 transition hover:border-b-[2px] hover:text-black md:block">
+          <Navigation hero={false} />
         </div>
       </div>
     </>

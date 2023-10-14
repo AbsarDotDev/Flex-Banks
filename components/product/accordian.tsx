@@ -5,53 +5,13 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '../../components/ui/accordion';
+import AccordionSection from './single-accord';
 
 function ProductAccordian() {
   return (
-    <div>
+    <div className="mt-8">
+      <AccordionSection />{' '}
       <Accordion type="multiple">
-        <AccordionItem value="item-1">
-          <AccordionTrigger>
-            <span className="flex items-center justify-start font-para text-sm font-medium uppercase text-black">
-              {/* <CheckCircle2 className="mr-2" /> */}
-              Discription
-            </span>
-          </AccordionTrigger>
-          <AccordionContent>
-            <p className="font-xs text-left font-head text-gray-600">
-              <span className="font-black text-gray-800">Drake</span> and{' '}
-              <span className="font-black text-gray-800">Nike</span> continue their collaboration
-              through the <span className="font-black text-gray-800">Nocta</span> label and revisit
-              the legendary <span className="font-black text-gray-800">Air Force 1 Low</span> to
-              mark the model's <span className="font-black text-gray-800">40th anniversary</span> .
-              <br />
-              <br />
-              The{' '}
-              <span className="font-black text-gray-800">
-                Nike Air Force 1 Low NOCTA Drake Certified Lover Boy
-              </span>{' '}
-              takes the curves of the silhouette imagined in{' '}
-              <span className="font-black text-gray-800">1982</span> by{' '}
-              <span className="font-black text-gray-800">Bruce Kilgore</span> by adding details that
-              make it original. We then find an immaculate{' '}
-              <span className="font-black text-gray-800">grained leather</span> upper . Only the
-              deubrés provide a slight contrast in material. On the heel reinforcement of the left
-              shoe, we can see the <span className="font-black text-gray-800">Nocta</span> logo
-              while the words “ <span className="font-black text-gray-800">AIR</span> ” on the sole
-              have been replaced by “{' '}
-              <span className="font-black text-gray-800">Love you forever</span> ”. <br /> <br />
-              The <span className="font-black text-gray-800">Canadian rapper</span> thus reinvents
-              in her own way this icon of sneaker culture which will arrive in a{' '}
-              <span className="font-black text-gray-800">special box</span> .<br />
-              <br />
-              <span className="font-black text-gray-800">SKU</span> : CZ8065-100
-              <br />
-              <span className="font-black text-gray-800">Release Date</span> : December 2022
-              <br />
-              <span className="font-black text-gray-800">Colorway</span> : WHITE/WHITE/WHITE
-            </p>
-          </AccordionContent>
-        </AccordionItem>
         <AccordionItem value="item-2">
           <AccordionTrigger>
             <span className="flex items-center justify-start font-para text-sm font-medium uppercase text-black">
