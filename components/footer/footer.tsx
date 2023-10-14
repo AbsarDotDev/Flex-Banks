@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="bg-gray-200 dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-2xl">
-        <div className="grid grid-cols-1 gap-8 py-6 md:grid-cols-5 md:px-5 lg:py-8">
+        <div className="grid grid-cols-1 gap-8 px-6 py-6 md:grid-cols-5 md:px-5 lg:py-8">
           <div>
             <Image src={'/logomain.png'} width={65} height={65} alt="logo" className="my-4" />
             <Instagram className="w-7" />

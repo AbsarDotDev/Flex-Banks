@@ -61,16 +61,16 @@ export function ProductCard({ product }: { product: Product }) {
             })}
           </Carousel>
           {!product.availableForSale ? (
-            <p className="absolute left-[90px] top-[150px] w-auto rounded-none px-4 py-2 font-head text-4xl font-black uppercase text-yellow-300 md:block">
+            <p className="absolute left-[40%] top-[160px] font-head text-4xl font-black uppercase text-yellow-300 md:block">
               SOLD
             </p>
           ) : null}
           {isHovered && (
             <Button
-              className="absolute bottom-10 left-2 right-2 hidden w-auto rounded-none bg-white px-4 py-2 font-para text-black hover:bg-white hover:text-black md:block"
+              className="absolute bottom-10 left-2 right-2 hidden w-[90%] rounded-none bg-gray-50 px-4 py-2 font-para text-black hover:bg-white hover:text-black md:block"
               style={{ zIndex: 1 }}
             >
-              Quick Buy
+              View Product
             </Button>
           )}
         </div>
