@@ -80,7 +80,7 @@ export default async function ProductPage({ params }: { params: { handle: string
         }}
       />
       <HeaderWithoutHero />
-      <div className="mx-auto mt-20 max-w-screen-2xl px-2 md:px-4">
+      <div className="mx-auto mt-[200px] max-w-screen-2xl px-2 md:px-4">
         <div className="flex flex-col p-8 dark:border-neutral-800 dark:bg-black md:p-12 lg:flex-row lg:gap-8">
           <div className="h-full w-full basis-full lg:basis-[55%]">
             <CustomGallery images={product.images} />
@@ -112,8 +112,8 @@ async function RelatedProducts({ id }: { id: string }) {
   return (
     <div className="py-8 ">
       <h2 className="mb-4 px-10 text-2xl font-bold">Related Products</h2>
-      <div className="grid grid-cols-1 gap-x-2 px-10 md:grid-cols-4">
-        {relatedProducts.map((product) => (
+      <div className="grid grid-cols-1 gap-x-2 px-10 md:grid-cols-3">
+        {relatedProducts.slice(0, 6).map((product) => (
           <ProductCard key={product.handle} product={product} />
         ))}
       </div>

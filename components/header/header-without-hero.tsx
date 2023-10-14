@@ -9,7 +9,7 @@ import MobileDrawer from './mobile-drawer';
 export default function HeaderWithoutHero() {
   return (
     <>
-      <div className="header fixed top-10 z-[999] w-full bg-opacity-80 text-white">
+      <div className="header fixed top-8 z-[999] w-full bg-black bg-opacity-80 text-white">
         <div className="flex w-full items-center justify-between px-6">
           <div className="flex">
             <MobileDrawer />

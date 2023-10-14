@@ -404,8 +404,6 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
       handle
     }
   });
-  console.log(res);
-
   return reshapeProduct(res.body.data.product, false);
 }
 

@@ -1,4 +1,5 @@
 import Header from 'components/header/header';
+import NewsLetter from 'components/news_letter';
 import { ProductCard } from 'components/product';
 import { Button } from 'components/ui/button';
 import { getCollectionProducts } from 'lib/shopify';
@@ -35,8 +36,8 @@ export default async function HomePage() {
         <Link href={'/collection/new-arrivals'}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
-        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-4">
-          {newArrivs.map((product) => {
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
+          {newArrivs.slice(0, 6).map((product) => {
             return <ProductCard key={product.handle} product={product} />;
           })}
         </div>
@@ -59,15 +60,15 @@ export default async function HomePage() {
         <Link href={''}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
-        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-4">
-          {bestSellers.map((product, index: number) => {
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
+          {bestSellers.slice(0, 6).map((product, index: number) => {
             return <ProductCard key={index} product={product} />;
           })}
         </div>
       </div>
 
       <div className="thumbnail-vid py-16">
-        <video autoPlay muted controls className="h-[400px] w-full object-cover md:h-[550px]">
+        <video autoPlay muted className="h-[400px] w-full object-cover md:h-[550px]">
           <source src="/vidthumb.mp4" type="video/mp4" />
         </video>
       </div>
@@ -79,8 +80,8 @@ export default async function HomePage() {
         <Link href={''}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
-        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-4">
-          {mystcollect.map((product, index: number) => {
+        <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
+          {mystcollect.slice(0, 6).map((product, index: number) => {
             return <ProductCard key={index} product={product} />;
           })}
         </div>
@@ -119,6 +120,7 @@ export default async function HomePage() {
           />
         </div>
       </div>
+      <NewsLetter />
     </>
   );
 }

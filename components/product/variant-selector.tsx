@@ -58,7 +58,6 @@ export function VariantSelector({
       {}
     )
   }));
-  // console.log(product.availableForSale);
   return options.map((option) => (
     <>
       <dl className="mb-8" key={option.id}>
@@ -275,10 +274,8 @@ export function VariantSelector({
         {optionPrice == ''
           ? `${
               product.priceRange.minVariantPrice.currencyCode +
+              ' ' +
               product.priceRange.minVariantPrice.amount
-            }- ${
-              product.priceRange.maxVariantPrice.currencyCode +
-              product.priceRange.maxVariantPrice.amount
             }`
           : product.priceRange.maxVariantPrice.currencyCode + optionPrice}
       </h1>

@@ -17,11 +17,9 @@ export function OutOfStock({ product }: { product: Product }) {
         message: `Hello, I'm interested in product ${product.title} `
       })
     });
-    // console.log(data);
   };
   return (
     <>
-      <div className="flex flex-col"></div>
       <div className="grid gap-4">
         <div className="space-y-3">
           <h1 className="text-[21px] font-black text-black">

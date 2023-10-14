@@ -9,7 +9,7 @@ const productFragment = /* GraphQL */ `
     title
     description
     descriptionHtml
-
+    totalInventory
     options {
       id
       name
