@@ -1,10 +1,10 @@
 'use client';
-import { MagnifyingGlassPlusIcon } from '@heroicons/react/24/outline';
 import { Button } from 'flowbite-react';
 import { Image as TypeImage } from 'lib/shopify/types';
-import { BadgeCheck, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Checked from '../../public/checklist.png';
 
 export const CustomGallery = ({ images }: { images: TypeImage[] }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -54,16 +54,17 @@ export const CustomGallery = ({ images }: { images: TypeImage[] }) => {
             <div className="relative">
               <Image src={image.url} alt="asda" width={1000} height={1000} className="w-full" />
               {index === 0 && (
-                <div className="absolute left-10 top-10  flex items-center gap-x-2 bg-black px-4 py-2">
-                  <BadgeCheck className="text-white" />
+                <div className="absolute left-10 top-10 flex items-center gap-x-2 bg-black px-4 py-2">
+                  {/* <BadgeCheck className="text-white bg-blue-600" /> */}
+                  <Image src={Checked} alt="certified" />
                   <p className="text-white">Authenticated</p>
                 </div>
               )}
-              {hoveredIndex === index && ( // Show magnifying icon when hovered
+              {/* {hoveredIndex === index && ( // Show magnifying icon when hovered
                 <div className=" absolute left-10 top-10 rounded-full bg-white p-2">
                   <MagnifyingGlassPlusIcon className="h-4 w-4 text-gray-500 " />
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         ))}

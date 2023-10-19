@@ -1,6 +1,7 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import Navigation from 'components/header/navigation';
+import Link from 'next/link';
 import { Suspense } from 'react';
 import { SheetSide } from './head-search';
 import MobileDrawer from './mobile-drawer';
@@ -14,10 +15,12 @@ export default function HeaderWithoutHero() {
             <MobileDrawer />
             <SheetSide />
           </div>
-          <div className="py-6">
-            <video autoPlay loop muted className="h-20 w-20 object-cover">
-              <source src="/1080p.webm" type="video/mp4" />
-            </video>
+          <div className="w-auto px-1 py-6">
+            <Link href={'/'}>
+              <video autoPlay loop muted className="h-20 w-auto object-cover">
+                <source src="/1080p.webm" type="video/mp4" />
+              </video>
+            </Link>
           </div>
           <div>
             <div className="flex items-center">

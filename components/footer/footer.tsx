@@ -1,6 +1,7 @@
-import { CheckCircle2, Instagram } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Checked from '../../public/checklist.png';
 
 export default function Footer() {
   return (
@@ -13,10 +14,9 @@ export default function Footer() {
           </div>
           <div>
             <div className="flex ">
-              <h2 className="mb-5 text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
-                entreprise certifiée
+              <h2 className="mb-5 flex text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
+                entreprise certifiée <Image src={Checked} alt="certified" />
               </h2>
-              <CheckCircle2 className="ml-1 rounded-full bg-blue-600 text-white" />
             </div>
             <div>
               <p className="text-[15px] font-medium leading-snug">
