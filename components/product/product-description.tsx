@@ -11,10 +11,16 @@ export function ProductDescription({ product }: { product: Product }) {
       <div className="mb-4 flex flex-col border-b pb-6 dark:border-neutral-700">
         <h1 className="mb-2 pt-6 text-3xl font-medium md:pt-0">{product.title}</h1>
       </div>
-      <div className="mb-4 flex h-[55px] items-center gap-x-3 bg-gray-300">
-        <img src="/timer.gif" alt="timer" className="w-16 bg-gray-300" />
-        <p className="text-lg font-medium">Only {product.totalInventory} left in stock</p>
-      </div>
+      {product.collections.edges[0]!.node.handle == 'shoes' ||
+      product.collections.edges[0]!.node.handle == 'slippers' ? (
+        <div className="mb-4 flex h-[55px] items-center gap-x-3 bg-gray-300">
+          <img src="/timer.gif" alt="timer" className="w-16 bg-gray-300" />
+          <p className="text-lg font-medium">Only {product.totalInventory} left in stock</p>
+        </div>
+      ) : (
+        <></>
+      )}
+
       <div>
         {!product.availableForSale ? (
           <div>
