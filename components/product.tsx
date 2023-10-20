@@ -37,17 +37,18 @@ export function ProductCard({ product }: { product: Product }) {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <Carousel
-            infiniteLoop={true}
-            showArrows={isHovered}
-            showIndicators={false}
-            selectedItem={isHovered ? 1 : 0}
-            className="w-full"
-          >
-            {product.images?.map((img: img, index: number) => {
-              return (
-                <div key={index}>
-                  <Link href={`/product/${product.handle}`}>
+          {' '}
+          <Link href={`/product/${product.handle}`}>
+            <Carousel
+              infiniteLoop={true}
+              showArrows={isHovered}
+              showIndicators={false}
+              selectedItem={isHovered ? 1 : 0}
+              className="w-full"
+            >
+              {product.images?.map((img: img, index: number) => {
+                return (
+                  <div key={index}>
                     <Image
                       width={335}
                       height={420}
@@ -55,14 +56,14 @@ export function ProductCard({ product }: { product: Product }) {
                       className="h-[420px]"
                       alt={`Carousel Image ${index + 1}`}
                     />
-                  </Link>
-                </div>
-              );
-            })}
-          </Carousel>
+                  </div>
+                );
+              })}
+            </Carousel>
+          </Link>
           {!product.availableForSale ? (
-            <p className="absolute left-[40%] top-[160px] font-head text-4xl font-black uppercase text-yellow-300 md:block">
-              SOLD
+            <p className="absolute left-[28%] top-[160px] font-head text-3xl font-black uppercase text-yellow-300 md:left-[35%] md:block">
+              SOLD OUT
             </p>
           ) : null}
           {isHovered && (
