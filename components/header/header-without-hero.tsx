@@ -1,8 +1,6 @@
-import Cart from 'components/cart';
-import OpenCart from 'components/cart/open-cart';
 import Navigation from 'components/header/navigation';
 import Link from 'next/link';
-import { Suspense } from 'react';
+import { CartHeader } from './cart-header';
 import { SheetSide } from './head-search';
 import MobileDrawer from './mobile-drawer';
 
@@ -25,9 +23,11 @@ export default function HeaderWithoutHero() {
           <div>
             <div className="flex items-center">
               {/* <User className="w-10 text-black" /> */}
-              <Suspense fallback={<OpenCart />}>
+              <CartHeader />
+
+              {/* <Suspense fallback={<OpenCart />}>
                 <Cart />
-              </Suspense>
+              </Suspense> */}
             </div>
           </div>
         </div>

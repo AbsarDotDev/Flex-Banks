@@ -6,6 +6,7 @@ import ColletionGridItems from 'components/collection-grid';
 import HeaderWithoutHero from 'components/header/header-without-hero';
 import FilterList from 'components/layout/search/filter';
 import NewsLetter from 'components/news_letter';
+import { Button } from 'components/ui/button';
 import { defaultSort, sorting } from 'lib/constants';
 import Image from 'next/image';
 import image2 from '../../../public/trop.jpg';
@@ -44,17 +45,17 @@ export default async function CategoryPage({
       <HeaderWithoutHero />
       <section className="">
         <Image
-          className="min-w-full"
+          className="h-[400px] min-w-full object-cover"
           src={collection!.image?.url}
           alt={collection!.title}
           width={collection!.image?.width}
           height={collection!.image?.height}
         />
-        <div className="absolute right-0 top-0  flex h-full w-full flex-col items-end justify-center text-black">
-          <h1 className="text-2xl font-semibold uppercase"> {params.collection}</h1>
-          <button className="my-5 rounded border border-blue-500 px-4 py-2 transition duration-300 ease-in-out hover:border-transparent hover:bg-blue-500 hover:text-white">
+        <div className="text-blac absolute right-0  top-0 flex h-full w-full flex-col items-end justify-center pr-10">
+          <h1 className="text-4xl font-semibold uppercase"> {params.collection}</h1>
+          <Button className="my-5 rounded border px-4 py-2 transition duration-300 ease-in-out hover:border-transparent hover:text-white">
             Shop Now
-          </button>
+          </Button>
         </div>
         <h1 className="mt-6 pb-10 text-center text-2xl font-semibold uppercase">
           {params.collection}
@@ -64,14 +65,14 @@ export default async function CategoryPage({
           {collection!.description}
         </p>
 
-        <div className="flex justify-end pb-10">
+        <div className="flex justify-end pb-10 pr-10">
           <FilterList list={sorting} title="Sort by" />
         </div>
 
         {products.length === 0 ? (
           <p className="py-3 text-lg">{`No products found in this collection`}</p>
         ) : (
-          <div className="my-6 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-4">
+          <div className="my-6 grid grid-cols-2 gap-x-2 px-10 md:grid-cols-3">
             <ColletionGridItems products={products} />
           </div>
         )}

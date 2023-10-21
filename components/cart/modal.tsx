@@ -3,6 +3,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import Price from 'components/price';
+import { Button } from 'components/ui/button';
 import { DEFAULT_OPTION } from 'lib/constants';
 import type { Cart } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
@@ -174,12 +175,18 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                       />
                     </div>
                   </div>
-                  <a
-                    href={cart.checkoutUrl}
-                    className="block w-full rounded-full bg-blue-600 p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
-                  >
-                    Proceed to Checkout
-                  </a>
+                  <Button onClick={closeCart}>
+                    {' '}
+                    <Link href={'/cart'} className="w-full text-center">
+                      View Cart
+                    </Link>
+                  </Button>
+                  <Button variant={'outline'} className="mt-6 ">
+                    {' '}
+                    <a className="w-full text-center" href={cart.checkoutUrl}>
+                      Proceed to Checkout
+                    </a>
+                  </Button>
                 </div>
               )}
             </Dialog.Panel>

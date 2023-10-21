@@ -1,14 +1,9 @@
 'use client';
-import $ from 'jquery';
 import Link from 'next/link';
 import { useState } from 'react';
 import OnHoverMenu from './on-hover-menu';
 
 const Navigation = ({ hero }: { hero: boolean }) => {
-  $('.customnav').on('hover', () => {
-    $('.navlink').css('color', 'black');
-    $('.header').css('background-color', 'black');
-  });
   const [isListVisible, setIsListVisible] = useState(false);
 
   const showList = () => {
