@@ -58,7 +58,8 @@ module.exports = {
       },
       fontFamily: {
         head: ['var(--font-zurich)'],
-        para: ['var(--font-univers)']
+        para: ['var(--font-univers)'],
+        auth: ['var(--font-auth)']
         // sans: ['var(--font-sans)', ...fontFamily.sans]
       },
       borderRadius: {

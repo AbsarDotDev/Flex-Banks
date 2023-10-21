@@ -57,7 +57,7 @@ export const CustomGallery = ({ images }: { images: TypeImage[] }) => {
                 <div className="absolute left-1 top-0 flex items-center gap-x-2 bg-black px-2 py-2 md:left-10 md:top-10 md:px-4">
                   {/* <BadgeCheck className="text-white bg-blue-600" /> */}
                   <Image src={Checked} alt="certified" />
-                  <p className="uppercase text-white">Authenticated</p>
+                  <p className="font-auth uppercase text-white">Authenticated</p>
                 </div>
               )}
               {/* {hoveredIndex === index && ( // Show magnifying icon when hovered
