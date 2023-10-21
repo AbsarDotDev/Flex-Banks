@@ -1,5 +1,6 @@
 import Footer from 'components/footer/footer';
 import TopBar from 'components/header/topbar';
+import { Toaster } from 'components/ui/toaster';
 import { ensureStartsWith } from 'lib/utils';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
@@ -16,6 +17,12 @@ const univers = localFont({
   src: '../public/uni.ttf',
   weight: 'normal',
   variable: '--font-univers'
+});
+// eslint-disable-next-line no-unused-vars
+const auth = localFont({
+  src: '../public/auth.ttf',
+  weight: 'normal',
+  variable: '--font-auth'
 });
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -46,12 +53,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${zurich.variable} ${univers.variable}`}>
+    <html lang="en" className={`${zurich.variable} ${univers.variable} ${auth.variable}`}>
       <meta name="facebook-domain-verification" content="cs4i59x7zg70jjgp7i7i1jfqyk4vh9" />
       <body className="bg-mycolors-bgcolor text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <TopBar />
 
         <main>{children}</main>
+        <Toaster />
         <footer>
           <Footer />
         </footer>

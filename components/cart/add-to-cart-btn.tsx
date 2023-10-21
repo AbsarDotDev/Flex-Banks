@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import { Button } from 'components/ui/button';
+import { toast } from 'components/ui/use-toast';
 import { Cart, Product, ProductVariant } from 'lib/shopify/types';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -39,7 +40,7 @@ export function AddToCartBtn({
   return (
     <div className="flex justify-evenly">
       <Button
-        aria-label="Add to cartt"
+        aria-label="Add to cart"
         disabled={isPending || !availableForSale || !selectedVariantId}
         title={title}
         onClick={() => {
@@ -52,7 +53,19 @@ export function AddToCartBtn({
               throw new Error(error.toString());
             }
 
-            router.refresh();
+            // router.refresh();
+          });
+          toast({
+            title: 'Product Added To Cart Successfully!',
+            description: `${product.title} was added to your cart.`,
+            action: (
+              <Link
+                href={'/cart'}
+                className="w-[105px] rounded-md border-[2px] border-gray-400 bg-green-600 px-2 py-3 text-center font-head text-xs font-bold  text-white hover:border-[1px] hover:border-green-600 hover:bg-transparent hover:text-green-600"
+              >
+                View Cart
+              </Link>
+            )
           });
         }}
         className={clsx(
@@ -66,9 +79,7 @@ export function AddToCartBtn({
         <div className="absolute left-0 ml-4">
           {!isPending ? <></> : <LoadingDots className="mb-3 bg-white" />}
         </div>
-        <Link href={`${cart?.checkoutUrl}`}>
-          <span className="">{availableForSale ? 'Add To Cart' : 'Out Of Stock'}</span>
-        </Link>
+        <span className="">{availableForSale ? 'Add To Cart' : 'Out Of Stock'}</span>
       </Button>
     </div>
   );
