@@ -56,7 +56,7 @@ export const CartProductLayout = ({ cart }: { cart: Cart | undefined }) => {
                       </div>
 
                       <div className="flex flex-1 flex-col justify-between px-4 text-base">
-                        <div>
+                        <Link href={`product/${item.merchandise.product.handle}`}>
                           <span className="leading-tight">{item.merchandise.product.title}</span>
                           {item.merchandise.title !== DEFAULT_OPTION ? (
                             <p className="text-sm text-neutral-500 dark:text-neutral-400">
@@ -65,7 +65,7 @@ export const CartProductLayout = ({ cart }: { cart: Cart | undefined }) => {
                                 item.merchandise.title}
                             </p>
                           ) : null}
-                        </div>
+                        </Link>
                         <Price
                           className="space-y-2 text-sm"
                           amount={item.cost.totalAmount.amount}

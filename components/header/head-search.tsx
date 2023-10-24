@@ -7,7 +7,7 @@ export function SheetSide() {
       <SheetTrigger>
         <Search className="text-black" />
       </SheetTrigger>
-      <SheetContent side={'top'} className="w-full justify-center px-20">
+      <SheetContent side={'top'} className="w-full justify-center px-2 md:px-20 lg:px-20">
         <SheetHeader>
           <SearchBar />
         </SheetHeader>

@@ -38,7 +38,7 @@ const sheetVariants = cva(
   {
     variants: {
       side: {
-        top: 'inset-x-0 top-0 h-[180px] border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',
+        top: 'inset-x-0 top-0 h-[120px] md:h-[180px] lg:h-[180px] border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',
         bottom:
           'inset-x-0 bottom-0 border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
         left: 'inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm',
@@ -63,7 +63,7 @@ const SheetContent = React.forwardRef<
   <SheetPortal>
     <SheetOverlay />
     <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
-      <div className="flex h-full items-center justify-center gap-x-20 ">
+      <div className="flex h-full items-center justify-between gap-x-1 md:justify-center md:gap-x-20 lg:justify-center lg:gap-x-20">
         {children}
         <SheetPrimitive.Close className=" rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
           <X className=" h-10 w-10 text-gray-700" />
@@ -78,7 +78,7 @@ SheetContent.displayName = SheetPrimitive.Content.displayName;
 const SheetHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'flex h-full w-[60%] max-w-6xl flex-col justify-center text-center sm:text-left',
+      'flex h-full w-full max-w-6xl flex-col justify-center text-center sm:text-left md:w-[60%] lg:w-[60%]',
       className
     )}
     {...props}

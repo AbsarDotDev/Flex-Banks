@@ -9,7 +9,7 @@ export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
       <div className="mb-4 flex flex-col border-b pb-6 dark:border-neutral-700">
-        <h1 className="mb-2 pt-6 text-3xl font-medium md:pt-0">{product.title}</h1>
+        <h1 className="mb-2 pt-6 text-2xl font-semibold md:pt-0">{product.title}</h1>
       </div>
       {product.collections.edges[0]!.node.handle == 'shoes' ||
       product.collections.edges[0]!.node.handle == 'slippers' ? (
