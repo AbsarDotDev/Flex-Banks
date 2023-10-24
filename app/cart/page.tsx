@@ -15,7 +15,7 @@ export default async function Cart() {
   return (
     <>
       <HeaderWithoutHero />
-      <div className="mx-auto mt-[150px] max-w-screen-2xl px-20 py-16">
+      <div className="mx-auto mt-10 max-w-screen-2xl px-4 py-16 md:px-16 lg:px-16">
         <div className="flex gap-x-4 text-center">
           <div className="mb-6 flex w-full flex-col border-b-2 border-black pb-4">
             <h6 className="text-sm font-thin">Cart</h6>

@@ -14,8 +14,8 @@ export default function Footer() {
           </div>
           <div>
             <div className="flex ">
-              <h2 className="mb-5 flex text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
-                entreprise certifiée <Image src={Checked} alt="certified" />
+              <h2 className="mb-5 flex items-center text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
+                entreprise certifiée <Image src={Checked} alt="certified" width={22} />
               </h2>
             </div>
             <div>

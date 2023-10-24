@@ -24,9 +24,9 @@ export default function Header() {
               <SheetSide />
               <MobileDrawer />
             </div>
-            <div className="w-auto px-1 py-6">
+            <div className="w-auto py-2">
               <Link href={'/'}>
-                <video autoPlay loop muted className="h-20 w-auto object-cover">
+                <video autoPlay loop muted className="w-20 object-cover">
                   <source src="/1080p.webm" type="video/mp4" />
                 </video>
               </Link>

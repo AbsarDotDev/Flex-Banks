@@ -16,7 +16,7 @@ export const CartProductLayout = ({ cart }: { cart: Cart | undefined }) => {
   return (
     <>
       {!cart || cart.lines.length === 0 ? (
-        <div className="mt-20 flex w-full flex-col items-center justify-center gap-y-6 overflow-hidden pb-20">
+        <div className="mt-4 flex w-full flex-col items-center justify-center gap-y-6 overflow-hidden pb-20">
           <ShoppingBag className="h-20 w-20 text-neutral-500 dark:text-neutral-400" />
           <p className="mt-6 text-center text-2xl font-bold">Your cart is sadly empty.</p>
           <Button>
@@ -24,8 +24,8 @@ export const CartProductLayout = ({ cart }: { cart: Cart | undefined }) => {
           </Button>
         </div>
       ) : (
-        <div className="mt-20 flex gap-x-4">
-          <div className="w-3/4">
+        <div className="flex flex-col gap-x-4 md:flex-row lg:flex-row">
+          <div className="w-full md:w-3/4 lg:w-3/4">
             <ul className="flex-grow overflow-auto py-4">
               {cart.lines.map((item, i) => {
                 const merchandiseSearchParams = {} as MerchandiseSearchParams;
@@ -89,7 +89,7 @@ export const CartProductLayout = ({ cart }: { cart: Cart | undefined }) => {
               })}
             </ul>
           </div>
-          <div className="w-1/4">
+          <div className="w-full md:w-1/4 lg:w-1/4">
             <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">
               <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
                 <p>Taxes</p>
