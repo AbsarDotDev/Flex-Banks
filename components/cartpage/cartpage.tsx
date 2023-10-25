@@ -1,9 +1,10 @@
 'use client';
 import EditItemQuantityButton from 'components/cart/edit-item-quantity-button';
 import Price from 'components/price';
+import { ProductCard } from 'components/product';
 import { Button } from 'components/ui/button';
 import { DEFAULT_OPTION } from 'lib/constants';
-import { Cart } from 'lib/shopify/types';
+import { Cart, Product } from 'lib/shopify/types';
 import { Award, MessageCircle, ShoppingBag, TruckIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +13,13 @@ type MerchandiseSearchParams = {
   [key: string]: string;
 };
 
-export const CartProductLayout = ({ cart }: { cart: Cart | undefined }) => {
+export const CartProductLayout = ({
+  cart,
+  products
+}: {
+  cart: Cart | undefined;
+  products: Product[];
+}) => {
   return (
     <>
       {!cart || cart.lines.length === 0 ? (
@@ -88,6 +95,14 @@ export const CartProductLayout = ({ cart }: { cart: Cart | undefined }) => {
                 );
               })}
             </ul>
+            <div className="py-8 ">
+              <h2 className="mb-3 text-2xl font-bold">The Popular Products</h2>
+              <div className="grid grid-cols-1 gap-x-2 md:grid-cols-3">
+                {products.slice(0, 3).map((product) => (
+                  <ProductCard key={product.handle} product={product} />
+                ))}
+              </div>
+            </div>
           </div>
           <div className="w-full md:w-1/4 lg:w-1/4">
             <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">

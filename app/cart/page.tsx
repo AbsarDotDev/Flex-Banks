@@ -10,7 +10,7 @@ export default async function Cart() {
   if (cartId) {
     cart = await getCart(cartId);
   }
-  const products = await getCollectionProducts({ collection: 'best-sellers' });
+  const products = await getCollectionProducts({ collection: 'hoodie' });
   // console.log(products);
   return (
     <>
@@ -30,7 +30,7 @@ export default async function Cart() {
             <h6 className="text-sm font-thin text-gray-400">Payment</h6>
           </div>
         </div>
-        <CartProductLayout cart={cart} />
+        <CartProductLayout cart={cart} products={products} />
       </div>
     </>
   );
