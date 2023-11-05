@@ -4,7 +4,7 @@ import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import { Button } from 'components/ui/button';
 import { Product, ProductVariant } from 'lib/shopify/types';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';
 import { setCart } from './set-cart';
 
@@ -23,6 +23,7 @@ export function AddToCart({
 
   // },[]);
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
@@ -54,7 +55,7 @@ export function AddToCart({
 
           startTransition(async () => {
             const error = await addItem(selectedVariantId);
-
+            router.replace(pathname, {});
             if (error) {
               // Trigger the error boundary in the root error.js
               throw new Error(error.toString());
@@ -91,7 +92,7 @@ export function AddToCart({
 
           startTransition(async () => {
             const error = await addItem(selectedVariantId);
-
+            router.replace(pathname, {});
             if (error) {
               // Trigger the error boundary in the root error.js
               throw new Error(error.toString());

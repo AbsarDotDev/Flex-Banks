@@ -5,12 +5,13 @@ import { useEffect, useState } from 'react';
 import { CartHeader } from './cart-header';
 import { SheetSide } from './head-search';
 import MobileDrawer from './mobile-drawer';
+
 export default function HeaderWithoutHero() {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > 30) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -27,13 +28,13 @@ export default function HeaderWithoutHero() {
     <>
       <div
         className={`header top-8 z-[999] w-full bg-gray-100 bg-opacity-80 text-white ${
-          isSticky ? 'sticky-header' : ''
+          isSticky ? 'sticky-header-without-hero' : ''
         }`}
       >
         <div className="flex w-full items-center justify-between px-6">
           <div className="flex">
             <MobileDrawer />
-            <SheetSide />
+            <SheetSide isSticky={isSticky} hero={false} />
           </div>
           <div className="w-auto px-1 py-6">
             <Link href={'/'}>
@@ -45,7 +46,7 @@ export default function HeaderWithoutHero() {
           <div>
             <div className="flex items-center">
               {/* <User className="w-10 text-black" /> */}
-              <CartHeader />
+              <CartHeader isSticky={isSticky} hero={false} />
 
               {/* <Suspense fallback={<OpenCart />}>
                 <Cart />
@@ -54,7 +55,7 @@ export default function HeaderWithoutHero() {
           </div>
         </div>
         <div className="customnav duration-50 pointer-events-auto hidden bg-white py-2 transition hover:text-black md:block">
-          <Navigation hero={false} />
+          <Navigation hero={false} isSticky={isSticky} />
         </div>
       </div>
     </>

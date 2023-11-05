@@ -67,7 +67,11 @@ export function VariantSelector({
             <div className="flex items-center justify-between">
               <p>{option.name}:</p>
               <div className="flex items-center">
-                <b>{optionNameLowerCase == '' ? 'All' : searchParams.get(optionNameLowerCase)}</b>{' '}
+                <b>
+                  {searchParams.has('size') === false
+                    ? 'All'
+                    : searchParams.get(optionNameLowerCase)}
+                </b>{' '}
                 <ChevronDown />
               </div>
             </div>

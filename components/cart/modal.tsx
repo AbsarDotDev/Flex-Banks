@@ -19,7 +19,15 @@ type MerchandiseSearchParams = {
   [key: string]: string;
 };
 
-export default function CartModal({ cart }: { cart: Cart | undefined }) {
+export default function CartModal({
+  cart,
+  isSticky,
+  hero
+}: {
+  cart: Cart | undefined;
+  isSticky: boolean;
+  hero: boolean;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const quantityRef = useRef(cart?.totalQuantity);
   const openCart = () => setIsOpen(true);
@@ -29,9 +37,9 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
     // Open cart modal when quantity changes.
     if (cart?.totalQuantity !== quantityRef.current) {
       // But only if it's not already open (quantity also changes when editing items in cart).
-      // if (!isOpen) {
-      //   setIsOpen(true);
-      // }
+      if (!isOpen) {
+        setIsOpen(true);
+      }
 
       // Always update the quantity reference
       quantityRef.current = cart?.totalQuantity;
@@ -41,7 +49,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
   return (
     <>
       <button aria-label="Open cart" onClick={openCart}>
-        <OpenCart quantity={cart?.totalQuantity} />
+        <OpenCart quantity={cart?.totalQuantity} isSticky={isSticky} hero={hero} />
       </button>
       <Transition show={isOpen}>
         <Dialog onClose={closeCart} className="relative z-50">
