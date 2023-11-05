@@ -44,16 +44,22 @@ export default async function CategoryPage({
     <>
       <HeaderWithoutHero />
       <section className="">
-        <Image
+        <video className="h-[400px] w-full object-cover bg-blend-overlay" autoPlay muted loop>
+          <source src="/SOLEBOY® - Luxury Streetwear for Men and Women.mp4" type="video/mp4" />
+        </video>
+        {/* <Image
           className="h-[400px] min-w-full object-cover"
           src={collection!.image?.url}
           alt={collection!.title}
           width={collection!.image?.width}
           height={collection!.image?.height}
-        />
+        /> */}
         <div className="text-blac absolute right-0  top-0 flex h-full w-full flex-col items-end justify-center pr-10">
           <h1 className="text-4xl font-semibold uppercase"> {params.collection}</h1>
-          <Button className="my-5 rounded border px-4 py-2 transition duration-300 ease-in-out hover:border-transparent hover:text-white">
+          <Button
+            variant={'default'}
+            className="my-5 rounded border border-transparent px-4 py-2 transition duration-300 ease-in-out hover:border-white hover:bg-transparent  hover:text-white"
+          >
             Shop Now
           </Button>
         </div>

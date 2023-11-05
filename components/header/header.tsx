@@ -1,10 +1,29 @@
+'use client';
 import Navigation from 'components/header/navigation';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { CartHeader } from './cart-header';
 import { SheetSide } from './head-search';
 import MobileDrawer from './mobile-drawer';
 
 export default function Header() {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <>
       <div
@@ -18,7 +37,7 @@ export default function Header() {
           height: '600px' // Center the background image
         }}
       >
-        <div className="header z-10 w-full text-white">
+        <div className={`header z-10 w-full text-white ${isSticky ? 'sticky-header' : ''}`}>
           <div className="flex w-full items-center justify-between px-6">
             <div className="flex">
               <SheetSide />
@@ -34,7 +53,8 @@ export default function Header() {
             <div>
               <div className="flex items-center">
                 {/* <User className="w-10" /> */}
-                {typeof window !== 'undefined' ? <CartHeader /> : <></>}
+                {/* @ts-ignore */}
+                <CartHeader />
               </div>
             </div>
           </div>

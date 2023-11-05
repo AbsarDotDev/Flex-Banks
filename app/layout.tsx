@@ -1,3 +1,4 @@
+import { getCartId } from 'components/cart/cart-with-server';
 import Footer from 'components/footer/footer';
 import TopBar from 'components/header/topbar';
 import { Toaster } from 'components/ui/toaster';
@@ -5,7 +6,7 @@ import { ensureStartsWith } from 'lib/utils';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import './globals.css';
-
+import StoreInitializer from './store-initializer';
 // eslint-disable-next-line no-unused-vars
 const zurich = localFont({
   src: '../public/zurich.ttf',
@@ -52,10 +53,12 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
+  const cart = await getCartId();
   return (
     <html lang="en" className={`${zurich.variable} ${univers.variable} ${auth.variable}`}>
       <meta name="facebook-domain-verification" content="cs4i59x7zg70jjgp7i7i1jfqyk4vh9" />
       <body className="bg-mycolors-bgcolor text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+        <StoreInitializer cart={cart} />
         <TopBar />
 
         <main>{children}</main>

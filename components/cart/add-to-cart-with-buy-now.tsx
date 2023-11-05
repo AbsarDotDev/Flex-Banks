@@ -1,5 +1,4 @@
 'use client';
-
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
@@ -7,6 +6,7 @@ import { Button } from 'components/ui/button';
 import { Product, ProductVariant } from 'lib/shopify/types';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';
+import { setCart } from './set-cart';
 
 export function AddToCart({
   variants,
@@ -17,6 +17,11 @@ export function AddToCart({
   availableForSale: boolean;
   product: Product;
 }) {
+  //   const [cart, setCart] = useState<Cart | undefined>(); // Initialize with null
+
+  // useEffect(() => {
+
+  // },[]);
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
@@ -54,6 +59,7 @@ export function AddToCart({
               // Trigger the error boundary in the root error.js
               throw new Error(error.toString());
             }
+            setCart();
 
             router.refresh();
           });
@@ -90,6 +96,7 @@ export function AddToCart({
               // Trigger the error boundary in the root error.js
               throw new Error(error.toString());
             }
+            setCart();
 
             router.refresh();
           });

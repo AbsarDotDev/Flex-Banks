@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 
 import clsx from 'clsx';
 import { removeItem } from 'components/cart/actions';
+import { setCart } from 'components/cart/set-cart';
 import type { CartItem } from 'lib/shopify/types';
 import { useTransition } from 'react';
 
@@ -22,6 +23,7 @@ export default function DeleteItemButtonPage({ item }: { item: CartItem }) {
             // Trigger the error boundary in the root error.js
             throw new Error(error.toString());
           }
+          setCart();
 
           router.refresh();
         });

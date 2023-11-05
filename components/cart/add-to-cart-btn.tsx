@@ -9,6 +9,7 @@ import { Cart, Product, ProductVariant } from 'lib/shopify/types';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';
+import { setCart } from './set-cart';
 
 export function AddToCartBtn({
   variants,
@@ -52,8 +53,9 @@ export function AddToCartBtn({
               // Trigger the error boundary in the root error.js
               throw new Error(error.toString());
             }
+            setCart();
 
-            // router.refresh();
+            router.refresh();
           });
           toast({
             title: 'Product Added To Cart Successfully!',

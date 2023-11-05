@@ -1,3 +1,4 @@
+'use client';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 
@@ -6,6 +7,7 @@ import clsx from 'clsx';
 import { removeItem, updateItemQuantity } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import type { CartItem } from 'lib/shopify/types';
+import { setCart } from './set-cart';
 
 export default function EditItemQuantityButton({
   item,
@@ -35,6 +37,7 @@ export default function EditItemQuantityButton({
             // Trigger the error boundary in the root error.js
             throw new Error(error.toString());
           }
+          setCart();
 
           router.refresh();
         });

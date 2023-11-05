@@ -1,3 +1,4 @@
+'use client';
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import { Suspense } from 'react';
