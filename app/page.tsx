@@ -30,9 +30,7 @@ export default async function HomePage() {
       <Header />
 
       <div className="NEW_ARRIVALS text-center">
-        <Link href={'/collection/new-arrivals'}>
-          <h1 className="mt-6 text-2xl font-semibold uppercase">New Arrival</h1>
-        </Link>
+        <h1 className="mt-6 text-2xl font-semibold uppercase">New Arrival</h1>
         <Link href={'/collection/new-arrivals'}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
@@ -54,10 +52,8 @@ export default async function HomePage() {
       </div>
 
       <div className="BEST_SELLERS text-center">
-        <Link href={''}>
-          <h1 className="mt-6 text-2xl font-semibold uppercase">Best Sellers</h1>
-        </Link>
-        <Link href={''}>
+        <h1 className="mt-6 text-2xl font-semibold uppercase">Best Sellers</h1>
+        <Link href={'/collection/best-sellers'}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
         <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
@@ -68,7 +64,7 @@ export default async function HomePage() {
       </div>
 
       <div className="thumbnail-vid py-16">
-        <video autoPlay muted className="h-[400px] w-full object-cover md:h-[550px]">
+        <video muted className="h-[400px] w-full object-cover md:h-[550px]" autoPlay playsInline>
           <source src="/vidthumb.mp4" type="video/mp4" />
         </video>
       </div>
@@ -77,7 +73,7 @@ export default async function HomePage() {
         <Link href={''}>
           <h1 className="mt-6 text-3xl font-semibold uppercase">Mystery Collection</h1>
         </Link>
-        <Link href={''}>
+        <Link href={'/collection/mystery-collection'}>
           <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
         </Link>
         <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">

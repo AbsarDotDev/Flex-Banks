@@ -6,7 +6,7 @@ import Link from 'next/link';
 import SubImg2 from 'public/submenu2.webp';
 import { useState } from 'react';
 
-export default function MobileDrawer() {
+export default function MobileDrawer({ hero, isSticky }: { hero: boolean; isSticky: boolean }) {
   const [menuLevel, setMenuLevel] = useState('main');
   const [submenuLevel, setSubmenuLevel] = useState('none');
   const [prevMenuLevel, setPrevMenuLevel] = useState('none');
@@ -38,7 +38,7 @@ export default function MobileDrawer() {
     <div className="flex md:hidden">
       <input type="checkbox" id="drawer-toggle" className="peer sr-only relative hidden"></input>
       <label htmlFor="drawer-toggle" className="rounded-lg">
-        <Menu />
+        <Menu className={`${!hero || isSticky ? 'text-black' : 'text-white'}`} />
       </label>
       <div className="fixed left-0 top-0 z-20 h-full w-[80%] -translate-x-full transform bg-white shadow-black backdrop-blur-3xl backdrop-opacity-80 transition-all duration-500 peer-checked:translate-x-0">
         <div className="">

@@ -83,13 +83,7 @@ export default async function ProductPage({ params }: { params: { handle: string
       <div className="mx-auto max-w-screen-2xl px-2 md:px-4">
         <div className="flex flex-col p-5 dark:border-neutral-800 dark:bg-black md:p-12 lg:flex-row lg:gap-8">
           <div className="h-full w-full basis-full lg:basis-[55%]">
-            <CustomGallery images={product.images} />
-            {/* <Gallery
-              images={product.images.map((image: Image) => ({
-                src: image.url,
-                altText: image.altText
-              }))}
-            /> */}
+            <CustomGallery product={product} />
           </div>
           <div className="basis-full lg:basis-[45%]">
             <ProductDescription product={product} />

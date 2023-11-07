@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ColletionGridItems from 'components/collection-grid';
+import Footer from 'components/footer/footer';
 import HeaderWithoutHero from 'components/header/header-without-hero';
 import FilterList from 'components/layout/search/filter';
 import NewsLetter from 'components/news_letter';
@@ -44,7 +45,7 @@ export default async function CategoryPage({
     <>
       <HeaderWithoutHero />
       <section className="">
-        <video className="h-[400px] w-full object-cover bg-blend-overlay" autoPlay muted loop>
+        <video className="h-[400px] w-full object-cover " autoPlay muted loop playsInline>
           <source src="/SOLEBOY® - Luxury Streetwear for Men and Women.mp4" type="video/mp4" />
         </video>
         {/* <Image
@@ -54,14 +55,16 @@ export default async function CategoryPage({
           width={collection!.image?.width}
           height={collection!.image?.height}
         /> */}
-        <div className="text-blac absolute right-0  top-0 flex h-full w-full flex-col items-end justify-center pr-10">
-          <h1 className="text-4xl font-semibold uppercase"> {params.collection}</h1>
-          <Button
-            variant={'default'}
-            className="my-5 rounded border border-transparent px-4 py-2 transition duration-300 ease-in-out hover:border-white hover:bg-transparent  hover:text-white"
-          >
-            Shop Now
-          </Button>
+        <div className="">
+          <div className="absolute right-0 top-[40%] flex w-full flex-col items-end justify-center pr-10 text-black">
+            <h1 className="text-4xl font-semibold uppercase"> {params.collection}</h1>
+            <Button
+              variant={'default'}
+              className="my-5 rounded border border-transparent px-4 py-2 transition duration-300 ease-in-out hover:border-white hover:bg-transparent  hover:text-white"
+            >
+              Shop Now
+            </Button>
+          </div>
         </div>
         <h1 className="mt-6 pb-10 text-center text-2xl font-semibold uppercase">
           {params.collection}
@@ -84,7 +87,7 @@ export default async function CategoryPage({
         )}
         <Image className="w-full" src={image2} alt=""></Image>
         <NewsLetter />
-        <footer />
+        <Footer />
       </section>
     </>
   );

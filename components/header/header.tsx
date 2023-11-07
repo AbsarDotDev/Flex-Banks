@@ -63,13 +63,13 @@ export default function Header() {
       >
         <div className={`header z-10 w-full text-white ${isSticky ? 'sticky-header' : ''}`}>
           <div className="flex w-full items-center justify-between px-6 py-8">
-            <div className="flex">
+            <div className="flex gap-x-4">
               <SheetSide isSticky={isSticky} hero={true} />
-              <MobileDrawer />
+              <MobileDrawer hero={true} isSticky={isSticky} />
             </div>
             <div className="w-auto">
               <Link href={'/'}>
-                <video autoPlay loop muted className="w-20 object-cover">
+                <video autoPlay loop muted className="w-20 object-cover" playsInline>
                   <source src="/1080p.webm" type="video/mp4" />
                 </video>
               </Link>
