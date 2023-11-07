@@ -69,6 +69,7 @@ export default function Header() {
             </div>
             <div className="w-auto">
               <Link href={'/'}>
+
                 <video className="w-20 object-cover" autoPlay loop muted playsInline>
                   <source src="/1080p.webm" type="video/mp4" />
                 </video>
