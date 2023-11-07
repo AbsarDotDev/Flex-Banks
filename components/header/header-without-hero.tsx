@@ -1,5 +1,6 @@
 'use client';
 import Navigation from 'components/header/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { CartHeader } from './cart-header';
@@ -38,10 +39,11 @@ export default function HeaderWithoutHero() {
           </div>
           <div className="w-auto px-1 py-6">
             <Link href={'/'}>
+              <Image src={'/logo_optimized.gif'} width={80} height={20} alt="logo" priority />
 
-              <video className="h-20 w-auto object-cover" autoPlay loop muted playsInline>
+              {/* <video className="h-20 w-auto object-cover" autoPlay loop muted playsInline>
                 <source src="/1080p.webm" type="video/mp4" />
-              </video>
+              </video> */}
             </Link>
           </div>
           <div>

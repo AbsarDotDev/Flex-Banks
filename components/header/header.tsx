@@ -1,6 +1,7 @@
 'use client';
 import Navigation from 'components/header/navigation';
 import $ from 'jquery';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { CartHeader } from './cart-header';
@@ -69,10 +70,10 @@ export default function Header() {
             </div>
             <div className="w-auto">
               <Link href={'/'}>
-
-                <video className="w-20 object-cover" autoPlay loop muted playsInline>
-                  <source src="/1080p.webm" type="video/mp4" />
-                </video>
+                <Image src={'/logo_optimized.gif'} width={80} height={20} alt="logo" priority />
+                {/* <video className="w-20 object-cover" autoPlay loop muted playsInline>
+                  <source src="/1080p.webm" type="video/webm" />
+                </video> */}
               </Link>
             </div>
             <div>
