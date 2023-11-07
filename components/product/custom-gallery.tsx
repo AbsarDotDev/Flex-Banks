@@ -1,12 +1,12 @@
 'use client';
 import { Button } from 'flowbite-react';
-import { Image as TypeImage } from 'lib/shopify/types';
+import { Product } from 'lib/shopify/types';
 import { X } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Checked from '../../public/checklist.png';
 
-export const CustomGallery = ({ images }: { images: TypeImage[] }) => {
+export const CustomGallery = ({ product }: { product: Product }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
   const [, setHoveredIndex] = useState<number | null>(null);
@@ -44,7 +44,7 @@ export const CustomGallery = ({ images }: { images: TypeImage[] }) => {
   return (
     <>
       <div className="grid grid-cols-2 gap-4">
-        {images.map((image, index) => (
+        {product.images.map((image, index) => (
           <div
             key={image.url}
             onMouseEnter={() => setHoveredIndex(index)} // Handle mouse enter
@@ -53,14 +53,23 @@ export const CustomGallery = ({ images }: { images: TypeImage[] }) => {
             className={`cursor-pointer ${index === 0 ? 'col-span-2' : 'col-span-1'}`}
           >
             <div className="relative">
-              <Image src={image.url} alt="asda" width={1000} height={1000} className="w-full" />
-              {index === 0 && (
-                <div className="absolute left-1 top-0 flex items-center gap-x-2 bg-black px-2 py-2 md:left-10 md:top-10 md:px-4">
-                  {/* <BadgeCheck className="text-white bg-blue-600" /> */}
-                  <Image src={Checked} alt="certified" width={22} />
-                  <p className="uppercase text-white">Authenticated</p>
-                </div>
-              )}
+              <Image
+                src={image.url}
+                alt={image.altText}
+                width={1000}
+                height={1000}
+                className="w-full"
+              />
+              {product.collections.edges[0]!.node.handle == 'shoes' ||
+              product.collections.edges[0]!.node.handle == 'slippers'
+                ? index === 0 && (
+                    <div className="absolute left-1 top-0 flex items-center gap-x-2 bg-black px-2 py-2 md:left-10 md:top-10 md:px-4">
+                      {/* <BadgeCheck className="text-white bg-blue-600" /> */}
+                      <Image src={Checked} alt="certified" width={22} />
+                      <p className="font-auth uppercase text-white">Authenticated</p>
+                    </div>
+                  )
+                : null}
               {/* {hoveredIndex === index && ( // Show magnifying icon when hovered
                 <div className=" absolute left-10 top-10 rounded-full bg-white p-2">
                   <MagnifyingGlassPlusIcon className="h-4 w-4 text-gray-500 " />
@@ -93,7 +102,7 @@ export const CustomGallery = ({ images }: { images: TypeImage[] }) => {
                   Close
                 </button> */}
                 <div className="h-full overflow-y-scroll">
-                  {images.map((imageUrl, index) => (
+                  {product.images.map((imageUrl, index) => (
                     <div key={imageUrl.url} id={`lightbox-image-${index}`} className="mb-4">
                       <Image
                         src={imageUrl.url}

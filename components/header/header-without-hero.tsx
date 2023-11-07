@@ -32,13 +32,14 @@ export default function HeaderWithoutHero() {
         }`}
       >
         <div className="flex w-full items-center justify-between px-6">
-          <div className="flex">
-            <MobileDrawer />
+          <div className="flex gap-x-4">
             <SheetSide isSticky={isSticky} hero={false} />
+            <MobileDrawer isSticky={isSticky} hero={false} />
           </div>
           <div className="w-auto px-1 py-6">
             <Link href={'/'}>
-              <video autoPlay playsInline loop muted className="h-20 w-auto object-cover">
+
+              <video className="h-20 w-auto object-cover" autoPlay loop muted playsInline>
                 <source src="/1080p.webm" type="video/mp4" />
               </video>
             </Link>
