@@ -38,7 +38,7 @@ export default function HeaderWithoutHero() {
           </div>
           <div className="w-auto px-1 py-6">
             <Link href={'/'}>
-              <video autoPlay loop muted className="h-20 w-auto object-cover" playsInline>
+              <video className="h-20 w-auto object-cover" autoPlay loop muted playsInline>
                 <source src="/1080p.webm" type="video/mp4" />
               </video>
             </Link>

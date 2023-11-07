@@ -64,7 +64,13 @@ export default async function HomePage() {
       </div>
 
       <div className="thumbnail-vid py-16">
-        <video muted className="h-[400px] w-full object-cover md:h-[550px]" autoPlay playsInline>
+        <video
+          className="h-[400px] w-full object-cover md:h-[550px]"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
           <source src="/vidthumb.mp4" type="video/mp4" />
         </video>
       </div>
