@@ -1,5 +1,4 @@
 import { getCartId } from 'components/cart/cart-with-server';
-import Footer from 'components/footer/footer';
 import TopBar from 'components/header/topbar';
 import { Toaster } from 'components/ui/toaster';
 import { ensureStartsWith } from 'lib/utils';
@@ -63,9 +62,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
         <main>{children}</main>
         <Toaster />
-        <footer>
+        {/* <footer>
           <Footer />
-        </footer>
+        </footer> */}
       </body>
     </html>
   );

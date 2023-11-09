@@ -76,10 +76,10 @@ export function ProductCard({ product }: { product: Product }) {
           )}
         </div>
       </div>
-      <div className="py-6 text-center font-head text-2xl md:text-xl">
+      <div className="w-full px-2 py-6 text-center font-head text-2xl md:text-xl">
         <Link href={`/product/${product.handle}`} className="">
-          <div className="flex flex-col items-center">
-            <span className="h-14 text-center text-[14px] font-bold">{product.title}</span>
+          <div className="flex flex-col items-start">
+            <span className="pb-1 text-left text-[16px] font-black">{product.title}</span>
             {OnSale ? (
               <div className="flex flex-row items-center gap-x-2">
                 <span className="text-center">
@@ -97,13 +97,13 @@ export function ProductCard({ product }: { product: Product }) {
             ) : !isVariableProduct ? (
               <span className="text-center text-[14px]">
                 {currencyFormatter.format(Number(product.priceRange.maxVariantPrice.amount))}{' '}
-                {product.priceRange.maxVariantPrice.currencyCode}
+                {/* {product.priceRange.maxVariantPrice.currencyCode} */}
               </span>
             ) : (
               <div className="flex items-center gap-x-2">
                 <span className="text-center text-[14px]">
                   {currencyFormatter.format(Number(product.priceRange.minVariantPrice.amount))}
-                  {product.priceRange.maxVariantPrice.currencyCode}
+                  {/* {product.priceRange.maxVariantPrice.currencyCode} */}
                 </span>
               </div>
             )}

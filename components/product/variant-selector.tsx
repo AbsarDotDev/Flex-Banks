@@ -61,9 +61,9 @@ export function VariantSelector({
   return options.map((option) => (
     <>
       <dl className="mb-8" key={option.id}>
-        <dt className="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
+        {/* <dt className="mb-4 text-sm uppercase tracking-wide">{option.name}</dt> */}
         <DropdownMenu modal={false}>
-          <DropdownMenuTrigger className="relative w-full border-[1px] border-gray-700 p-2">
+          <DropdownMenuTrigger className="relative w-full rounded-sm border-[1px] border-gray-700 p-3">
             <div className="flex items-center justify-between">
               <p>{option.name}:</p>
               <div className="flex items-center">
@@ -77,7 +77,7 @@ export function VariantSelector({
             </div>
           </DropdownMenuTrigger>
           {tabNames !== undefined ? (
-            <DropdownMenuContent className="relative justify-start px-4 py-4 md:px-7">
+            <DropdownMenuContent side="left" className="relative justify-start px-4 py-4 md:px-7">
               <div className="flex flex-col gap-y-8">
                 <h3>Sizes and Conversions</h3>
                 <Tabs defaultValue="US W" className="w-[320px] md:w-[400px] ">
@@ -190,7 +190,7 @@ export function VariantSelector({
               </div>
             </DropdownMenuContent>
           ) : (
-            <DropdownMenuContent className="relative justify-start px-4 py-4 md:px-7">
+            <DropdownMenuContent side="left" className="relative justify-start px-4 py-4 md:px-7">
               <div className="flex flex-col gap-y-8">
                 <h3>Sizes and Conversions</h3>
 

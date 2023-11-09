@@ -66,7 +66,7 @@ export function AddToCart({
           });
         }}
         className={clsx(
-          'text-md relative mr-2 flex w-full items-center justify-center rounded-none border-[1px] border-black bg-transparent py-5 font-bold tracking-wide text-black hover:bg-black hover:text-white',
+          'relative mr-2 flex w-full items-center justify-center rounded-none border-[1px] border-black bg-transparent py-6 text-[18px] font-black text-black hover:bg-black hover:text-white',
           {
             'hover:opacity-50': !availableForSale || !selectedVariantId,
             'cursor-not-allowed': isPending
@@ -103,7 +103,7 @@ export function AddToCart({
           });
         }}
         className={clsx(
-          'text-md relative ml-2 flex w-full items-center justify-center rounded-none border-[1px] py-5 font-bold tracking-wide text-white hover:border-black hover:bg-transparent hover:text-black',
+          'relative ml-2 flex w-full items-center justify-center rounded-none border-[1px] border-green-600 bg-green-600 py-6 text-[18px] font-black text-white hover:border-green-600 hover:bg-transparent hover:text-black',
           {
             'hover:opacity-50': !availableForSale || !selectedVariantId,
             'cursor-not-allowed': isPending

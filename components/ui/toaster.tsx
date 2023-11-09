@@ -17,7 +17,7 @@ export function Toaster() {
     <ToastProvider swipeDirection="down" swipeThreshold={100}>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
-          <Toast type="foreground" duration={1500} key={id} {...props}>
+          <Toast type="foreground" defaultOpen={false} duration={1500} key={id} {...props}>
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && <ToastDescription>{description}</ToastDescription>}

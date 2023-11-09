@@ -1,10 +1,9 @@
 'use client';
 import { Button } from 'flowbite-react';
 import { Product } from 'lib/shopify/types';
-import { X } from 'lucide-react';
+import { BadgeCheck, X } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import Checked from '../../public/checklist.png';
 
 export const CustomGallery = ({ product }: { product: Product }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -63,10 +62,10 @@ export const CustomGallery = ({ product }: { product: Product }) => {
               {product.collections.edges[0]!.node.handle == 'shoes' ||
               product.collections.edges[0]!.node.handle == 'slippers'
                 ? index === 0 && (
-                    <div className="absolute left-1 top-0 flex items-center gap-x-2 bg-black px-2 py-2 md:left-10 md:top-10 md:px-4">
-                      {/* <BadgeCheck className="text-white bg-blue-600" /> */}
-                      <Image src={Checked} alt="certified" width={22} />
-                      <p className="font-auth uppercase text-white">Authenticated</p>
+                    <div className="absolute left-1 top-0 flex items-center gap-x-2 bg-black px-2 py-2 md:left-10 md:top-10 md:px-3">
+                      <BadgeCheck className="h-7 w-7 text-white" />
+                      {/* <Image src={Checked} alt="certified" width={22} /> */}
+                      <p className="font-auth text-base uppercase text-white">Authenticated</p>
                     </div>
                   )
                 : null}

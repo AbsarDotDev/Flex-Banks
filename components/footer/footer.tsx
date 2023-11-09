@@ -19,7 +19,7 @@ export default function Footer() {
               </h2>
             </div>
             <div>
-              <p className="text-[15px] font-medium leading-snug">
+              <p className="font-head text-[14px] font-medium leading-snug">
                 Entrepôt <br />
                 66 Av des champs-Élysées <br />
                 75008 Paris
@@ -30,7 +30,7 @@ export default function Footer() {
             <h2 className="mb-5 text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
               notre mission
             </h2>
-            <p className="text-[15px] font-medium leading-snug">
+            <p className="font-head text-[14px] font-medium leading-snug">
               Notre mission est de vous fournir les meilleurs produits de qualité au meilleur prix.
             </p>
           </div>
@@ -38,16 +38,16 @@ export default function Footer() {
             <h2 className="mb-5 text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
               nous contacter
             </h2>
-            <p className="text-[15px] font-medium leading-snug">
+            <p className="font-head text-[14px] font-medium leading-snug">
               E-mail: officalflexbank@gmail.com
             </p>
-            <p className="text-[15px] font-medium leading-snug">Phone: 0698897299</p>
+            <p className="font-head text-[14px] font-medium leading-snug">Phone: 0698897299</p>
           </div>
           <div>
-            <h2 className="mb-5 text-[18px] font-semibold uppercase text-gray-900 dark:text-white">
+            <h2 className="mb-5 text-[18px] font-black uppercase text-gray-900 dark:text-white">
               aide
             </h2>
-            <ul className="font-para text-[15px] font-medium leading-snug text-gray-900 dark:text-gray-400">
+            <ul className="font-head text-[14px] font-medium leading-snug text-gray-900 dark:text-gray-400">
               <li className="mb-2">
                 <Link href="#" className="uppercase hover:underline">
                   Faq
@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
         <div className="border-t-[1px] border-gray-300 px-5 pb-10 text-center dark:bg-gray-700 md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-900 dark:text-gray-300 sm:text-center">
-            © 2023 <Link href="https://flowbite.com/">FlashBanks™</Link>. All Rights Reserved.
+            © 2023 <Link href="/">FlaksBanks™</Link>. All Rights Reserved.
           </span>
           <div className="mt-4 flex justify-center space-x-5 md:mt-0">
             <ul className="flex text-[12px]">
