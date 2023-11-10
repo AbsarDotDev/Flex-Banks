@@ -1,4 +1,5 @@
 import { CartProductLayout } from 'components/cartpage/cartpage';
+import Footer from 'components/footer/footer';
 import HeaderWithoutHero from 'components/header/header-without-hero';
 import { getCart, getCollectionProducts } from 'lib/shopify';
 import { cookies } from 'next/headers';
@@ -32,6 +33,7 @@ export default async function Cart() {
         </div>
         <CartProductLayout cart={cart} products={products} />
       </div>
+      <Footer />
     </>
   );
 }

@@ -19,8 +19,8 @@ module.exports = {
     extend: {
       colors: {
         mycolors: {
-          pink: '#ffa9f2',
-          bgcolor: '#eaeaea'
+          pink: '#101010',
+          bgcolor: '#E8EAED'
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

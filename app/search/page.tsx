@@ -1,3 +1,4 @@
+import Footer from 'components/footer/footer';
 import HeaderWithoutHero from 'components/header/header-without-hero';
 import FilterList from 'components/layout/search/filter';
 import { ProductCard } from 'components/product';
@@ -45,6 +46,7 @@ export default async function SearchPage({
           </div>
         ) : null}
       </div>
+      <Footer />
     </>
   );
 }

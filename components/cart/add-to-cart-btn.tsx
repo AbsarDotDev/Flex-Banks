@@ -1,12 +1,11 @@
 'use client';
-
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import { Button } from 'components/ui/button';
+import { ToastAction } from 'components/ui/toast';
 import { toast } from 'components/ui/use-toast';
 import { Cart, Product, ProductVariant } from 'lib/shopify/types';
-import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';
 import { setCart } from './set-cart';
@@ -22,6 +21,9 @@ export function AddToCartBtn({
   product: Product;
   cart: Cart | undefined;
 }) {
+  function viewCart() {
+    router.push('/cart');
+  }
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
@@ -61,12 +63,20 @@ export function AddToCartBtn({
             title: 'Product Added To Cart Successfully!',
             description: `${product.title} was added to your cart.`,
             action: (
-              <Link
-                href={'/cart'}
+              <ToastAction
+                onClick={viewCart}
                 className="w-[105px] rounded-md border-[2px] border-gray-400 bg-green-600 px-2 py-3 text-center font-head text-xs font-bold  text-white hover:border-[1px] hover:border-green-600 hover:bg-transparent hover:text-green-600"
+                altText="Goto schedule to undo"
               >
                 View Cart
-              </Link>
+              </ToastAction>
+              // <Button
+              //  onClick={()=>{viewCart}}
+              //   className="w-[105px] rounded-md border-[2px] border-gray-400 bg-green-600 px-2 py-3 text-center font-head text-xs font-bold  text-white hover:border-[1px] hover:border-green-600 hover:bg-transparent hover:text-green-600"
+              // >
+              //   View Cart
+
+              // </Button>
             )
           });
         }}

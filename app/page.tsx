@@ -1,3 +1,4 @@
+import Footer from 'components/footer/footer';
 import Header from 'components/header/header';
 import NewsLetter from 'components/news_letter';
 import { ProductCard } from 'components/product';
@@ -54,7 +55,10 @@ export default async function HomePage() {
       <div className="BEST_SELLERS text-center">
         <h1 className="mt-6 text-2xl font-semibold uppercase">Best Sellers</h1>
         <Link href={'/collection/best-sellers'}>
-          <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
+          <Button className="w-40 rounded-sm bg-[#1de783] text-center font-head font-black uppercase text-black ">
+            see more
+          </Button>
+          {/* <p className="text-[10px] uppercase text-gray-500 underline">see more</p> */}
         </Link>
         <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
           {bestSellers.slice(0, 6).map((product, index: number) => {
@@ -123,6 +127,7 @@ export default async function HomePage() {
         </div>
       </div>
       <NewsLetter />
+      <Footer />
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
+import Footer from 'components/footer/footer';
 import HeaderWithoutHero from 'components/header/header-without-hero';
 import { ProductCard } from 'components/product';
 import { CustomGallery } from 'components/product/custom-gallery';
@@ -94,6 +95,7 @@ export default async function ProductPage({ params }: { params: { handle: string
         </Suspense>
       </div>
       <ScrollToTopButton product={product} />
+      <Footer />
     </>
   );
 }
