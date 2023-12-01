@@ -23,8 +23,8 @@ const TopBar = () => {
   return (
     <div className="flex h-8 items-center justify-between bg-mycolors-pink px-4">
       <Instagram className="text-white" size={20} />
-      <div className="animate__animated animate__fadeInUp animate__faster text-white">
-        <p className="text-sm">{texts[currentIndex]}</p>
+      <div className="  animate__animated animate__fadeInUp animate__faster text-white">
+        <p className="text-xs md:text-sm">{texts[currentIndex]}</p>
       </div>
       <div></div>
       {/* <p>Currency Converter here</p> */}

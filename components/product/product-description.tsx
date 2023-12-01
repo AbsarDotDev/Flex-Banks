@@ -1,15 +1,32 @@
+'use client';
 import { AddToCart } from 'components/cart/add-to-cart-with-buy-now';
 import { Product } from 'lib/shopify/types';
+import { useSearchParams } from 'next/navigation';
 import ProductAccordian from './accordian';
 import { OutOfStock } from './outofstock';
 import RoundVideo from './round-video-btn';
 import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {
+  const optionSearchParams = useSearchParams();
+  const currencyFormatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: product.priceRange.maxVariantPrice.currencyCode
+  });
   return (
     <>
-      <div className="mb-4 flex flex-col border-b pb-6 dark:border-neutral-700">
-        <h1 className="mb-2 pt-6 text-2xl font-semibold md:pt-0">{product.title}</h1>
+      <div className="mb-4 flex flex-col dark:border-neutral-700">
+        <h1 className="mb-3 pt-6 text-xl font-medium text-gray-900 md:pt-0">{product.title}</h1>
+        <span className="text-left font-head text-xl font-black text-black">
+          {!optionSearchParams.get('size')
+            ? currencyFormatter.format(Number(product.priceRange.maxVariantPrice.amount))
+            : ''}
+          {product.variants.map((variant) =>
+            optionSearchParams.get('size') === variant.title
+              ? currencyFormatter.format(Number(variant.price.amount))
+              : ''
+          )}
+        </span>
       </div>
       {product.collections.edges[0]!.node.handle == 'shoes' ||
       product.collections.edges[0]!.node.handle == 'slippers' ? (

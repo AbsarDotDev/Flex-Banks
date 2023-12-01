@@ -274,7 +274,7 @@ export function VariantSelector({
           )}
         </DropdownMenu>
       </dl>
-      <h1 className="rounded-ful m-auto mb-8 pt-2 text-center text-xl font-bold text-green-800">
+      {/* <h1 className="rounded-ful m-auto mb-8 pt-2 text-center text-xl font-bold text-green-800">
         {optionPrice == ''
           ? `${
               product.priceRange.minVariantPrice.currencyCode +
@@ -282,7 +282,7 @@ export function VariantSelector({
               product.priceRange.minVariantPrice.amount
             }`
           : product.priceRange.maxVariantPrice.currencyCode + optionPrice}
-      </h1>
+      </h1> */}
     </>
   ));
 }

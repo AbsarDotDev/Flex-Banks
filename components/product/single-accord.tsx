@@ -67,7 +67,7 @@ const AccordionSection = () => {
             <span className="font-black text-gray-800">Drake</span> and{' '}
             <span className="font-black text-gray-800">Nike</span> continue their collaboration
             through the <span className="font-black text-gray-800">Nocta</span> label and
-            <span className="blur-[1px]">
+            <span className="">
               {' '}
               revisit the legendary{' '}
               <span className="font-black text-gray-800">Air Force 1 Low</span> to mark the

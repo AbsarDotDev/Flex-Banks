@@ -86,7 +86,7 @@ export default async function ProductPage({ params }: { params: { handle: string
           <div className="h-full w-full basis-full lg:basis-[55%]">
             <CustomGallery product={product} />
           </div>
-          <div className="basis-full lg:basis-[45%]">
+          <div className="sticky top-[190px] h-full basis-full lg:basis-[45%]">
             <ProductDescription product={product} />
           </div>
         </div>
