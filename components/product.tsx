@@ -31,9 +31,9 @@ export function ProductCard({ product }: { product: Product }) {
       key={product.handle}
       className="relative my-8 flex w-full transform flex-col items-center justify-center rounded-xl "
     >
-      <div className="relative h-[420px] w-full">
+      <div className="relative h-[330px] w-full md:h-[420px]">
         <div
-          className="relative h-[420px] w-full cursor-pointer overflow-hidden rounded-xl"
+          className="relative h-[330px] w-full cursor-pointer overflow-hidden rounded-xl md:h-[420px]"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -62,13 +62,13 @@ export function ProductCard({ product }: { product: Product }) {
             </Carousel>
           </Link>
           {!product.availableForSale ? (
-            <p className="absolute left-[28%] top-[160px] font-head text-3xl font-black uppercase text-yellow-300 md:left-[35%] md:block">
+            <p className="absolute left-[20%] top-[150px] font-head text-3xl font-black uppercase text-black md:left-[30%] md:top-[180px] md:block">
               SOLD OUT
             </p>
           ) : null}
           {isHovered && (
             <Button
-              className="absolute bottom-10 left-2 right-2 hidden w-[90%] rounded-none bg-gray-50 px-4 py-2 font-para text-black hover:bg-white hover:text-black md:block"
+              className="absolute bottom-6 left-5 hidden w-[90%] rounded-none bg-gray-50 px-4 py-2 font-para text-black hover:bg-white hover:text-black md:block"
               style={{ zIndex: 1 }}
             >
               View Product
@@ -76,10 +76,12 @@ export function ProductCard({ product }: { product: Product }) {
           )}
         </div>
       </div>
-      <div className="w-full px-2 py-6 text-center font-head text-2xl md:text-xl">
+      <div className="w-full px-2 pb-0 pt-4 text-center font-head">
         <Link href={`/product/${product.handle}`} className="">
           <div className="flex flex-col items-start">
-            <span className="pb-1 text-left text-[16px] font-black">{product.title}</span>
+            <span className="pb-2 text-left text-[12px] font-extralight uppercase text-gray-500">
+              {product.title}
+            </span>
             {OnSale ? (
               <div className="flex flex-row items-center gap-x-2">
                 <span className="text-center">
@@ -95,13 +97,13 @@ export function ProductCard({ product }: { product: Product }) {
                 </span>
               </div>
             ) : !isVariableProduct ? (
-              <span className="text-center text-[14px]">
+              <span className="text-center text-[12px] font-black text-black">
                 {currencyFormatter.format(Number(product.priceRange.maxVariantPrice.amount))}{' '}
                 {/* {product.priceRange.maxVariantPrice.currencyCode} */}
               </span>
             ) : (
               <div className="flex items-center gap-x-2">
-                <span className="text-center text-[14px]">
+                <span className="text-center text-[12px] font-black text-black">
                   {currencyFormatter.format(Number(product.priceRange.minVariantPrice.amount))}
                   {/* {product.priceRange.maxVariantPrice.currencyCode} */}
                 </span>

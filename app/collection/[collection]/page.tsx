@@ -7,7 +7,6 @@ import Footer from 'components/footer/footer';
 import HeaderWithoutHero from 'components/header/header-without-hero';
 import FilterList from 'components/layout/search/filter';
 import NewsLetter from 'components/news_letter';
-import { Button } from 'components/ui/button';
 import { defaultSort, sorting } from 'lib/constants';
 import Image from 'next/image';
 import image2 from '../../../public/trop.jpg';
@@ -55,7 +54,7 @@ export default async function CategoryPage({
           width={collection!.image?.width}
           height={collection!.image?.height}
         /> */}
-        <div className="">
+        {/* <div className="">
           <div className="absolute right-0 top-[40%] flex w-full flex-col items-end justify-center pr-10 text-black">
             <h1 className="text-4xl font-semibold uppercase"> {params.collection}</h1>
             <Button
@@ -65,7 +64,7 @@ export default async function CategoryPage({
               Shop Now
             </Button>
           </div>
-        </div>
+        </div> */}
         <h1 className="mt-6 pb-10 text-center text-2xl font-semibold uppercase">
           {params.collection}
         </h1>

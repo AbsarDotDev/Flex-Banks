@@ -19,24 +19,26 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const newArrivs = await getCollectionProducts({ collection: 'shoes' });
-  const bestSellers = await getCollectionProducts({ collection: 'slippers' });
-  const mystcollect = await getCollectionProducts({ collection: 'hoodie' });
+  const newArrivs = await getCollectionProducts({ collection: 'new-arrivals' });
+  const bestSellers = await getCollectionProducts({ collection: 'best-sellers' });
+  const mystCollect = await getCollectionProducts({ collection: 'mystery-collection' });
 
   if (!newArrivs?.length) return 'No Products Found';
   if (!bestSellers?.length) return 'No Products Found';
-  if (!mystcollect?.length) return 'No Products Found';
+  if (!mystCollect?.length) return 'No Products Found';
   return (
     <>
       <Header />
 
       <div className="NEW_ARRIVALS text-center">
-        <h1 className="mt-6 text-2xl font-semibold uppercase">New Arrival</h1>
+        <h1 className="mb-1 mt-6 text-2xl font-semibold uppercase">New Arrival</h1>
         <Link href={'/collection/new-arrivals'}>
-          <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
+          <Button className="w-40 rounded-sm bg-[#1de783] text-center font-head font-black uppercase text-black hover:bg-green-500">
+            see more
+          </Button>{' '}
         </Link>
         <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
-          {newArrivs.slice(0, 6).map((product) => {
+          {newArrivs.slice(1, 7).map((product) => {
             return <ProductCard key={product.handle} product={product} />;
           })}
         </div>
@@ -53,15 +55,14 @@ export default async function HomePage() {
       </div>
 
       <div className="BEST_SELLERS text-center">
-        <h1 className="mt-6 text-2xl font-semibold uppercase">Best Sellers</h1>
+        <h1 className="mb-1 mt-6 text-2xl font-semibold uppercase">Best Sellers</h1>
         <Link href={'/collection/best-sellers'}>
-          <Button className="w-40 rounded-sm bg-[#1de783] text-center font-head font-black uppercase text-black ">
+          <Button className="w-40 rounded-sm bg-[#1de783] text-center font-head font-black uppercase text-black hover:bg-green-500">
             see more
           </Button>
-          {/* <p className="text-[10px] uppercase text-gray-500 underline">see more</p> */}
         </Link>
         <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
-          {bestSellers.slice(0, 6).map((product, index: number) => {
+          {bestSellers.slice(1, 7).map((product, index: number) => {
             return <ProductCard key={index} product={product} />;
           })}
         </div>
@@ -81,13 +82,15 @@ export default async function HomePage() {
 
       <div className="MYST_COLLECTION text-center">
         <Link href={''}>
-          <h1 className="mt-6 text-3xl font-semibold uppercase">Mystery Collection</h1>
+          <h1 className="mb-1 mt-6 text-2xl font-semibold uppercase">Mystery Collection</h1>
         </Link>
         <Link href={'/collection/mystery-collection'}>
-          <p className="text-[10px] uppercase text-gray-500 underline">see more</p>
+          <Button className="w-40 rounded-sm bg-[#1de783] text-center font-head font-black uppercase text-black hover:bg-green-500">
+            see more
+          </Button>{' '}
         </Link>
         <div className="my-6 grid grid-cols-1 gap-x-4 px-10 md:grid-cols-3">
-          {mystcollect.slice(0, 6).map((product, index: number) => {
+          {mystCollect.slice(1, 7).map((product, index: number) => {
             return <ProductCard key={index} product={product} />;
           })}
         </div>
